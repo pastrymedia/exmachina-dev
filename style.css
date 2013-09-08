@@ -1,0 +1,71 @@
+/*
+Theme Name: ExMachina Dev
+Theme URI: http://machinathemes.com
+Description: A God-like WordPress development framework
+Author: Machina Themes
+Author URI: http://machinathemes.com
+Version: 1.0.0
+Support URI: http://machinathemes.com
+Documentation URI: http://machinathemes.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: threaded-comments, translation-ready
+Text Domain: exmachina
+Domain Path: /languages
+*/
+
+body {
+	background:#eee;
+	color: #373737;
+	font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	line-height: 1.625;
+}
+
+p { margin:0 0 10px 0; }
+h1, h2, h3 { margin:0 0 10px 0; }
+
+dl { margin-bottom: 20px; }
+dt, dd { line-height: 20px; }
+dt { font-weight: bold; }
+dd { margin-left: 10px; }
+.dl-horizontal { *zoom: 1; }
+
+.dl-horizontal:before,
+.dl-horizontal:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.dl-horizontal:after { clear: both; }
+
+.dl-horizontal dt {
+  float: left;
+  width: 360px;
+  overflow: hidden;
+  clear: left;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dl-horizontal dd { margin-left: 380px; }
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+}
+
+.page {
+	background:#fff;
+	border: 1px solid #ddd;
+	min-width:440px;
+	max-width:740px;
+	width:60%;
+	margin:20px auto;
+}
+
+.entry-content { padding:20px 40px; }
