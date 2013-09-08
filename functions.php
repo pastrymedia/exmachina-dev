@@ -30,11 +30,11 @@ if ( !defined('ABSPATH')) exit;
 ###############################################################################
 
 /* Load the core theme framework. */
-//require_once( trailingslashit( get_template_directory() ) . 'library/engine.php' );
-//new ExMachina();
+require_once( trailingslashit( get_template_directory() ) . 'library/engine.php' );
+new ExMachina();
 
 /* Do theme setup on the 'exmachina_init' hook. */
-//add_action( 'exmachina_init', 'optimus_theme_setup' );
+add_action( 'exmachina_init', 'optimus_theme_setup' );
 
 /**
  * Theme Setup Function
