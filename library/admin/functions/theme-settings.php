@@ -16,7 +16,7 @@ if ( !defined('ABSPATH')) exit;
  * <DESCRIPTION GOES HERE>
  *
  * @package     ExMachina
- * @subpackage  Admin
+ * @subpackage  Admin Functions
  * @author      Machina Themes | @machinathemes
  * @copyright   Copyright (c) 2013, Machina Themes
  * @license     http://opensource.org/licenses/gpl-2.0.php GPL-2.0+
@@ -32,7 +32,7 @@ if ( !defined('ABSPATH')) exit;
  * Registers a new admin page, providing content and corresponding menu item for
  * the Theme Settings page.
  *
- * @since 0.1.0
+ * @since 0.2.0
  */
 class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
 
@@ -41,22 +41,16 @@ class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
    *
    * Creates an admin menu item and settings page.
    *
-   * @todo apply filters to $menu_title
-   * @todo apply filters to $page_title
-   *
-   * @since 0.1.0
+   * @since 0.2.0
    */
   function __construct() {
 
-    //global $exmachina;
-
     /* Get theme information. */
     $theme = wp_get_theme( get_template(), get_theme_root( get_template_directory() ) );
-    //$prefix = exmachina_get_prefix();
 
     /* Get menu titles. */
-    $menu_title = __( 'Theme Settings', 'exmachina' );
-    $page_title = sprintf( esc_html__( '%1s %2s', 'exmachina' ), $theme->get( 'Name' ), $menu_title );
+    $menu_title = __( 'Theme Settings', 'exmachina-core' );
+    $page_title = sprintf( esc_html__( '%1s %2s', 'exmachina-core' ), $theme->get( 'Name' ), $menu_title );
 
     /* Specify the unique page id. */
     $page_id = 'theme-settings';
@@ -71,7 +65,7 @@ class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
             'sep_capability' => 'edit_theme_options',
           ),
           'page_title' => $page_title,
-          'menu_title' => 'ExMachina',
+          'menu_title' => $theme->get( 'Name' ),
           'capability' => 'edit_theme_options',
           'icon_url'   => 'div',
           'position'   => '58.996',
@@ -94,11 +88,11 @@ class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
       'exmachina_theme_settings_page_ops',
       array(
         'screen_icon'       => 'options-general',
-        'save_button_text'  => __( 'Save Settings', 'exmachina' ),
-        'reset_button_text' => __( 'Reset Settings', 'exmachina' ),
-        'saved_notice_text' => __( 'Settings saved.', 'exmachina' ),
-        'reset_notice_text' => __( 'Settings reset.', 'exmachina' ),
-        'error_notice_text' => __( 'Error saving settings.', 'exmachina' ),
+        'save_button_text'  => __( 'Save Settings', 'exmachina-core' ),
+        'reset_button_text' => __( 'Reset Settings', 'exmachina-core' ),
+        'saved_notice_text' => __( 'Settings saved.', 'exmachina-core' ),
+        'reset_notice_text' => __( 'Settings reset.', 'exmachina-core' ),
+        'error_notice_text' => __( 'Error saving settings.', 'exmachina-core' ),
       )
     );
 
@@ -111,7 +105,7 @@ class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
       array(
         'theme_version' => EXMACHINA_VERSION,
         'db_version'    => EXMACHINA_DB_VERSION,
-        'test_setting'   => __( 'This is the test setting default.', 'exmachina' ),
+        'test_setting'   => __( 'This is the test setting default.', 'exmachina-core' ),
       )
     );
 
@@ -177,10 +171,10 @@ class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
     /* Trigger the help content action hook. */
     do_action( 'exmachina_theme_settings_help', $this->pagehook );
 
-  } // end function help()
+  } // end function settings_page_help()
 
   /**
-   * Theme Settings Metaboxes
+   * Theme Settings Load Metaboxes
    *
    * Register metaboxes on the theme settings page.
    *
@@ -189,14 +183,14 @@ class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
   public function settings_page_load_metaboxes() {
 
     /* Adds hidden fields before the theme settings metabox display. */
-    add_action( 'theme_settings_admin_before_metaboxes', array( $this, 'hidden_fields' ) );
+    add_action( $this->pagehook . '_admin_before_metaboxes', array( $this, 'hidden_fields' ) );
 
     add_meta_box('test_metabox', 'Test Metabox', array( $this, 'display_test_metabox' ), $this->pagehook, 'normal', 'high');
 
     /* Trigger the theme settings metabox action hook. */
     do_action( 'exmachina_theme_settings_metaboxes', $this->pagehook );
 
-  } // end function metaboxes()
+  } // end function settings_page_load_metaboxes()
 
   /**
    * Theme Settings Hidden Fields

@@ -7,15 +7,13 @@ if ( !defined('ABSPATH')) exit;
  * ExMachina WordPress Theme Framework Engine
  * Admin Builder Class
  *
- * admin.php
+ * admin.class.php
  *
  * WARNING: This file is part of the ExMachina Framework Engine. DO NOT edit
  * this file under any circumstances. Bad things will happen. Please do all
  * modifications in the form of a child theme.
  *
  * <DESCRIPTION GOES HERE>
- *
- * @todo  update pagehooks to action hooks
  *
  * @package     ExMachina
  * @subpackage  Classes
@@ -70,6 +68,7 @@ abstract class ExMachina_Admin {
    * @uses maybe_add_main_menu()     Possibly create a new top level admin menu.
    * @uses maybe_add_first_submenu() Possibly create the first submenu item.
    * @uses maybe_add_submenu()       Possibly create a submenu item.
+   * @uses maybe_add_theme_submenu() Possibly create a theme submenu item.
    * @uses register_settings()       Register the database settings for storage.
    * @uses notices()                 Display notices on the save or reset of settings.
    * @uses settings_init()           Initialize the settings page.
@@ -93,9 +92,6 @@ abstract class ExMachina_Admin {
     $this->settings_field   = $this->settings_field   ? $this->settings_field   : $settings_field;
     $this->default_settings = $this->default_settings ? $this->default_settings : (array) $default_settings;
 
-    /* Format $page_id as an action and filter hook. */
-    $this->pagehook = str_replace('-', '_', $this->page_id);
-
     /* Set the $page_ops defaults. */
     $page_ops_defaults = array(
       'screen_icon'       => 'options-general',
@@ -109,25 +105,13 @@ abstract class ExMachina_Admin {
     /* Parse the $page_ops arguments. */
     $this->page_ops = wp_parse_args( $this->page_ops, $page_ops_defaults );
 
-    /* Apply the $page_ops default filters. */
-    $this->page_ops = apply_filters( 'exmachina_' . $this->pagehook . 'create_page_ops', $this->page_ops );
-
-    /* Apply the $menu_ops default filters. */
-    $this->menu_ops = apply_filters( 'exmachina_' . $this->pagehook . 'create_menu_ops', $this->menu_ops );
-
-    /* Apply the $settings_field default filters. */
-    $this->settings_field = apply_filters( 'exmachina_' . $this->pagehook . 'create_settings_field', $this->settings_field );
-
-    /* Apply the $default_settings default filters. */
-    $this->default_settings = apply_filters( 'exmachina_' . $this->pagehook . 'create_default_settings', $this->default_settings );
-
     /* Do nothing if page_id not set. */
     if ( ! $this->page_id )
       return;
 
     /* Check to make sure there we are only creating one menu per subclass. */
     if ( isset( $this->menu_ops['submenu'] ) && ( isset( $this->menu_ops['main_menu'] ) || isset( $this->menu_ops['first_submenu'] ) ) )
-      wp_die( sprintf( __( 'You cannot use %s to create two menus in the same subclass. Please use separate subclasses for each menu.', 'exmachina' ), 'ExMachina_Admin' ) );
+      wp_die( sprintf( __( 'You cannot use %s to create two menus in the same subclass. Please use separate subclasses for each menu.', 'exmachina-core' ), 'ExMachina_Admin' ) );
 
     /* Create the menu(s). Conditional logic happens within the separate methods. */
     add_action( 'admin_menu', array( $this, 'maybe_add_main_menu' ), 5 );
@@ -596,188 +580,6 @@ abstract class ExMachina_Admin_Form extends ExMachina_Admin {
 } // end class ExMachina_Admin_Form
 
 /**
- * ExMachina Admin Boxes
- *
- * Abstract subclass of ExMachina_Admin which adds support for registering and
- * displaying metaboxes.
- *
- * This class must be extended when creating an admin page with metaboxes, and
- * the settings_metaboxes()  method must be defined in the subclass.
- *
- * @since 0.2.0
- */
-abstract class ExMachina_Admin_Boxes extends ExMachina_Admin {
-
-  /**
-   * Admin Boxes Settings Init
-   *
-   * Satisfies the abstract requirements of ExMachina_Admin.
-   *
-   * Initializes all the theme settings page functionality. This function is used
-   * to create the theme settings page, then use that as a launchpad for specific
-   * actions that need to be tied to the settings page.
-   *
-   * @since 0.2.0
-   */
-  public function settings_init() {
-
-    /* Load settings page scripts. */
-    add_action( 'load-' . $this->pagehook, array( $this, 'scripts' ) );
-
-    /* Load metabox callback. */
-    add_action( 'load-' . $this->pagehook, array( $this, 'metaboxes' ) );
-
-    /* Filter metaboxes to single column layout. */
-    add_filter( 'screen_layout_columns', array( $this, 'layout_columns' ), 10, 2 );
-
-    /* Add metabox markup to settings page hook. */
-    add_action( $this->pagehook . '_settings_page_boxes', array( $this, 'do_metaboxes' ) );
-
-    /* Load help tabs if 'settings_page_help' method exists. */
-    if ( method_exists( $this, 'settings_page_help' ) )
-      add_action( 'load-' . $this->pagehook, array( $this, 'settings_page_help' ) );
-
-  } // end function settings_init()
-
-  /**
-   * Enqueue Settings Page Scripts
-   *
-   * Loads the JavaScript files required for managing the metaboxes on the theme
-   * settings page.
-   *
-   * @since 0.2.0
-   */
-  public function scripts() {
-
-    wp_enqueue_script( 'common' );
-    wp_enqueue_script( 'wp-lists' );
-    wp_enqueue_script( 'postbox' );
-
-  } // end function scripts()
-
-  /**
-   * Settings Page Layout Columns
-   *
-   * Make the sortable UI into a single column.
-   *
-   * @since 0.2.0
-   *
-   * @param  integer  $columns The number of columns to have on the page.
-   * @param  string   $screen  The unique screen id.
-   * @return array             Returns array of screen ids and columns
-   */
-  public function layout_columns( $columns, $screen ) {
-
-    if ( $screen === $this->pagehook ) {
-      //* This page should only have 1 column option
-      $columns[$this->pagehook] = 1;
-    }
-
-    return $columns;
-
-  } // end function layout_columns()
-
-  /**
-   * Settings Page Output
-   *
-   * Settings admin callback to create an admin page with sortable metaboxes.
-   * Displays the theme settings page markup and calls do_meta_boxes() to allow
-   * additional settings metaboxes to be added to the page.
-   *
-   * @since 0.2.0
-   * @return void
-   */
-  public function settings_page() {
-
-    ?>
-    <div class="wrap exmachina-metaboxes">
-    <form method="post" action="options.php">
-
-      <?php wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
-      <?php wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
-      <?php settings_fields( $this->settings_field ); ?>
-
-      <?php screen_icon( $this->page_ops['screen_icon'] ); ?>
-      <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-
-      <?php settings_errors( $this->pagehook . '-notices' ); ?>
-
-      <p class="top-buttons">
-        <?php
-        submit_button( $this->page_ops['save_button_text'], 'primary', 'submit', false, array( 'id' => '' ) );
-        submit_button( $this->page_ops['reset_button_text'], 'secondary exmachina-js-confirm-reset', $this->get_field_name( 'reset' ), false, array( 'id' => '' ) );
-        ?>
-      </p>
-
-      <?php do_action( $this->pagehook . '_settings_page_boxes', $this->pagehook ); ?>
-
-      <div class="bottom-buttons">
-        <?php
-        submit_button( $this->page_ops['save_button_text'], 'primary', 'submit', false, array( 'id' => '' ) );
-        submit_button( $this->page_ops['reset_button_text'], 'secondary exmachina-js-confirm-reset', $this->get_field_name( 'reset' ), false, array( 'id' => '' ) );
-        ?>
-      </div>
-    </form>
-    </div>
-    <script type="text/javascript">
-      //<![CDATA[
-      jQuery(document).ready( function ($) {
-        // close postboxes that should be closed
-        $('.if-js-closed').removeClass('if-js-closed').addClass('closed');
-        // postboxes setup
-        postboxes.add_postbox_toggles('<?php echo $this->pagehook; ?>');
-      });
-      //]]>
-    </script>
-    <?php
-
-  } // end function admin()
-
-  /**
-   * Do Metaboxes
-   *
-   * Echo out the do_meta_boxes() and wrapping markup.
-   *
-   * This method can be overriden in a child class, to adjust the markup
-   * surrounding the metaboxes, and optionally call do_meta_boxes() with
-   * other contexts. The overwritten method must contain div elements with
-   * classes of metabox-holder and postbox-container.
-   *
-   * @since 0.2.0
-   * @global object $wp_meta_boxes
-   */
-  public function do_metaboxes() {
-
-    global $wp_meta_boxes;
-
-    ?>
-    <div class="metabox-holder">
-      <div class="postbox-container">
-        <?php
-        do_action( 'exmachina_admin_before_metaboxes', $this->pagehook );
-        do_meta_boxes( $this->pagehook, 'main', null );
-        if ( isset( $wp_meta_boxes[$this->pagehook]['column2'] ) )
-          do_meta_boxes( $this->pagehook, 'column2', null );
-        do_action( 'exmachina_admin_after_metaboxes', $this->pagehook );
-        ?>
-      </div>
-    </div>
-    <?php
-
-  } // end function do_metaboxes()
-
-  /**
-   * Register the Metaboxes
-   *
-   * Abstract function to load metaboxes on the theme settings page. Must be
-   * overridden in a subclass, or obviously, it won't work.
-   *
-   * @since 0.2.0
-   */
-  abstract public function metaboxes();
-} // end class ExMachina_Admin_Boxes
-
-/**
  * ExMachina Admin Metaboxes
  *
  * Abstract subclass of ExMachina_Admin which adds support for registering and
@@ -1053,166 +855,3 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
   } // end function settings_page_footer_scripts()
 
 } // end class ExMachina_Admin_Metaboxes
-
-/**
- * ExMachina Admin Metaboxes Builder
- *
- * Abstract subclass of ExMachina_Admin_Metaboxes which adds support for
- * registering and displaying metaboxes via a metabox class.
- *
- * @since 0.2.0
- */
-class ExMachina_Admin_Metaboxes_Builder extends ExMachina_Admin_Metaboxes {
-
-  /**
-   * Admin Builder Protected Variables
-   *
-   * @todo cleanup var descriptions
-   *
-   * @var array $_settings
-   * @var array $_sanitize
-   * @var array $_help
-   * @var array $_metaboxes
-   */
-  protected $_settings;
-  protected $_sanitize;
-  protected $_help;
-  protected $_metaboxes;
-
-  /**
-   * [__construct description]
-   *
-   * Create the admin menu and the settings page.
-   *
-   * @param [type] $settings  [description]
-   * @param [type] $sanitize  [description]
-   * @param [type] $help      [description]
-   * @param [type] $metaboxes [description]
-   */
-  function __construct( $settings, $sanitize, $help, $metaboxes ) {
-
-    $this->_settings  = $settings;
-    $this->_sanitize  = $sanitize;
-    $this->_help      = $help;
-    $this->_metaboxes = $metaboxes;
-
-    /* Specify a unique page ID. */
-    $page_id = $settings['page_id'];
-
-    /* Define the $menu_ops_defaults. */
-    $menu_ops_defaults = array(
-      'submenu' => array(
-        'parent_slug' => 'theme-settings',
-        'capability' => 'manage_options',
-      )
-    );
-
-    /* Parse the $menu_ops arguments. */
-    $menu_ops = wp_parse_args( $settings['menu_ops'], $menu_ops_defaults );
-
-    /* Define the $page_ops_defaults. Optional. Uncomment to change. */
-    $page_ops_defaults = array(
-    //  'screen_icon'       => 'options-general',
-    //  'save_button_text'  => __( 'Save Settings', 'exmachina' ),
-    //  'reset_button_text' => __( 'Reset Settings', 'exmachina' ),
-    //  'saved_notice_text' => __( 'Settings saved.', 'exmachina' ),
-    //  'reset_notice_text' => __( 'Settings reset.', 'exmachina' ),
-    //  'error_notice_text' => __( 'Error saving settings.', 'exmachina' ),
-    );
-
-    /* Parse the $page_ops arguments. */
-    $page_ops = wp_parse_args( $settings['page_ops'], $page_ops_defaults );
-
-    /* Define a unique settings field. Options are accessed from exmachina_get_option( '$option_name', '$settings_field' ); */
-    $settings_field = $settings['settings_field'];
-
-    /* Define the default values. */
-    $default_settings = $settings['default_settings'];
-
-    /* Create the admin page. */
-    $this->create( $page_id, $menu_ops, $page_ops, $settings_field, $default_settings );
-
-    /* Initialize the sanitization filter. */
-    add_action( 'exmachina_settings_sanitization_init', array( $this, 'sanitization_filters' ) );
-
-  } // end function __construct()
-
-  /**
-   * [sanitization_filters description]
-   *
-   * Setup the sanitization filters.
-   *
-   * @return [type] [description]
-   */
-  function sanitization_filters() {
-
-    foreach( $this->_sanitize as $key => $values )
-      exmachina_add_option_filter( $key, $this->settings_field, $values );
-
-  } // end function sanitiation_filters()
-
-  /**
-   * [settings_page_load_metaboxes description]
-   *
-   * Register the metaboxes on the admin page.
-   *
-   * @todo add multiple metabox support
-   *
-   * @return [type] [description]
-   */
-  function settings_page_load_metaboxes() {
-
-    $this->_metaboxes['context'] = isset( $this->_metaboxes['context'] ) ? $this->_metaboxes['context'] : 'normal';
-    $this->_metaboxes['priority'] = isset( $this->_metaboxes['priority'] ) ? $this->_metaboxes['priority'] : 'default';
-
-    add_meta_box( $this->_metaboxes['id'], $this->_metaboxes['title'], array( &$this, 'settings_page_display_metabox' ), $this->pagehook, $this->_metaboxes['context'], $this->_metaboxes['priority'] );
-  } // end function settings_page_load_metaboxes()
-
-  /**
-   * [settings_page_help description]
-   *
-   * Register contextual help on the admin page.
-   *
-   * @return [type] [description]
-   */
-  function settings_page_help() {
-
-    global $my_admin_page;
-
-    $screen = get_current_screen();
-
-    if ( $screen->id != $this->pagehook )
-      return;
-
-    $tabs = isset( $this->_help['tab'] ) ? $this->_help['tab'] : array();
-
-    foreach ( $tabs as $tab ) {
-
-      $screen->add_help_tab(
-        array(
-          'id' => $tab['id'],
-          'title' => $tab['title'],
-          'content' => $tab['content'],
-        )
-      );
-    } // end foreach ($tabs as $tab)
-
-    $sidebars = isset( $this->_help['sidebar'] ) ? $this->_help['sidebar'] : array();
-
-    foreach ( $sidebars as $sidebar ) {
-
-      $screen->set_help_sidebar( $sidebar );
-    } // end foreach ($sidebars as $sidebar)
-
-  } // end function settings_page_help()
-
-  /**
-   * [settings_page_display_metabox description]
-   * @return [type] [description]
-   */
-  function settings_page_display_metabox() {} // end function settings_page_display_metabox()
-
-} // end class ExMachina_Admin_Metaboxes_Builder
-
-/* Trigger the 'exmachina_admin_init' action hook. */
-do_action( 'exmachina_admin_init' );

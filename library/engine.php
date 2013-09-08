@@ -372,9 +372,6 @@ class ExMachina {
     /* Load the settings sanitization class. */
     require_once( trailingslashit( EXMACHINA_CLASSES ) . 'sanitize.class.php' );
 
-    /* Load the settings builder class. */
-    require_once( trailingslashit( EXMACHINA_CLASSES ) . 'settings.class.php' );
-
   } // end function exmachina_load_classes()
 
   /**
@@ -451,7 +448,7 @@ class ExMachina {
     /* Load the theme settings page. */
     require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'theme-settings.php' );
 
-    require_once( trailingslashit( EXMACHINA_ADMIN_OPTIONS ) . 'meta-box-demo.php' );
+    //require_once( trailingslashit( EXMACHINA_ADMIN_OPTIONS ) . 'meta-box-demo.php' );
 
     } // end if(is_admin())
   } // end function exmachina_load_admin()
