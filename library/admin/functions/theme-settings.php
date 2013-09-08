@@ -13,7 +13,10 @@ if ( !defined('ABSPATH')) exit;
  * this file under any circumstances. Bad things will happen. Please do all
  * modifications in the form of a child theme.
  *
- * <DESCRIPTION GOES HERE>
+ * Handles the display and functionality of the theme settings page. This provides
+ * the needed hooks and meta box calls to create any number of theme settings needed.
+ * This file is only loaded if the theme supports the 'exmachina-core-theme-settings'
+ * feature.
  *
  * @package     ExMachina
  * @subpackage  Admin Functions

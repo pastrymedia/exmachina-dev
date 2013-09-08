@@ -199,10 +199,10 @@ class ExMachina {
     define( 'EXMACHINA_ADMIN_OPTIONS_URL', trailingslashit( EXMACHINA_ADMIN_URL ) . 'options' );
 
     /* Sets the admin assets directory location URL constants. */
-    define( 'EXMACHINA_ADMIN_CSS', trailingslashit( EXMACHINA_ASSETS_URL ) . 'css' );
-    define( 'EXMACHINA_ADMIN_IMAGES', trailingslashit( EXMACHINA_ASSETS_URL ) . 'images' );
-    define( 'EXMACHINA_ADMIN_JS', trailingslashit( EXMACHINA_ASSETS_URL ) . 'js' );
-    define( 'EXMACHINA_ADMIN_VENDOR', trailingslashit( EXMACHINA_ASSETS_URL ) . 'vendor' );
+    define( 'EXMACHINA_ADMIN_CSS', trailingslashit( EXMACHINA_ADMIN_ASSETS_URL ) . 'css' );
+    define( 'EXMACHINA_ADMIN_IMAGES', trailingslashit( EXMACHINA_ADMIN_ASSETS_URL ) . 'images' );
+    define( 'EXMACHINA_ADMIN_JS', trailingslashit( EXMACHINA_ADMIN_ASSETS_URL ) . 'js' );
+    define( 'EXMACHINA_ADMIN_VENDOR', trailingslashit( EXMACHINA_ADMIN_ASSETS_URL ) . 'vendor' );
 
     /* Sets the assets directory location URL constants. */
     define( 'EXMACHINA_CSS', trailingslashit( EXMACHINA_ASSETS_URL ) . 'css' );
@@ -445,10 +445,12 @@ class ExMachina {
     /* Check if in the WordPress admin. */
     if ( is_admin() ) {
 
+      require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'admin.php' );
+
     /* Load the theme settings page. */
     require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'theme-settings.php' );
 
-    //require_once( trailingslashit( EXMACHINA_ADMIN_OPTIONS ) . 'meta-box-demo.php' );
+    require_once( trailingslashit( EXMACHINA_ADMIN_OPTIONS ) . 'meta-box-demo.php' );
 
     } // end if(is_admin())
   } // end function exmachina_load_admin()
