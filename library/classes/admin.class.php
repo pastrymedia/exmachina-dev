@@ -727,12 +727,45 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
    */
   public function settings_page_enqueue_scripts() {
 
+    /* Short-circuit if not an admin page. */
+    if ( ! exmachina_is_menu_page( $this->page_id ) )
+      return;
+
     /* Enqueue default WordPress bundled metabox scripts. */
     wp_enqueue_script( 'common' );
     wp_enqueue_script( 'wp-lists' );
     wp_enqueue_script( 'postbox' );
+    wp_enqueue_script( 'jquery-ui-spinner' );
 
-    /* Enqueue admin JavaScript if on the theme settings screen. */
+
+
+    /* Enqueue uikit JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-uikit-admin-js' );
+
+    wp_enqueue_script( 'exmachina-codemirror-js' );
+    wp_enqueue_script( 'exmachina-codemirror-jsmode-js' );
+    wp_enqueue_script( 'exmachina-codemirror-cssmode-js' );
+    wp_enqueue_script( 'exmachina-codemirror-htmlmode-js' );
+    wp_enqueue_script( 'exmachina-codemirror-xmlmode-js' );
+    wp_enqueue_script( 'exmachina-codemirror-phpmode-js' );
+    wp_enqueue_script( 'exmachina-codemirror-clikemode-js' );
+
+    wp_enqueue_script( 'exmachina-admin-horizon-js' );
+    wp_enqueue_script( 'exmachina-horizon-color-js' );
+    wp_enqueue_script( 'exmachina-horizon-font-js' );
+    wp_enqueue_script( 'exmachina-horizon-select-js' );
+
+    /* Enqueue admin JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-core-admin-colorpicker-js' );
+
+    /* Enqueue admin JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-core-admin-typography-js' );
+
+    /* Enqueue admin JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-core-admin-setup-js' );
+
+    /* Enqueue admin JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-core-admin-js' );
 
   } // end function settings_enqueue_scripts()
 
@@ -754,10 +787,21 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
   public function settings_page_enqueue_styles() {
 
     /* Short-circuit if not an admin page. */
-    //if ( ! exmachina_is_menu_page( $this->page_id ) )
-    //  return;
+    if ( ! exmachina_is_menu_page( $this->page_id ) )
+      return;
 
-    /* Enqueue admin stylesheet if on the theme settings screen. */
+    /* Enqueue uikit stylesheet if on an admin settings screen. */
+    wp_enqueue_style( 'exmachina-uikit-admin-css' );
+
+    wp_enqueue_style( 'exmachina-codemirror-css' );
+
+    wp_enqueue_style( 'exmachina-core-colorpicker-css' );
+
+    wp_enqueue_style( 'exmachina-horizon-colorpicker-css' );
+    wp_enqueue_style( 'exmachina-horizon-selectbox-css' );
+
+    /* Enqueue admin stylesheet if on an admin settings screen. */
+    wp_enqueue_style( 'exmachina-core-admin-css' );
 
   } // end function settings_enqueue_styles()
 
@@ -828,7 +872,7 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
         <h3>
           <?php submit_button( $this->page_ops['save_button_text'], 'primary update-button pull-right', 'submit', false, array( 'id' => '' ) ); ?>
           <?php submit_button( $this->page_ops['reset_button_text'], 'secondary reset-button exmachina-js-confirm-reset', $this->get_field_name( 'reset' ), false, array( 'id' => '' ) ); ?>
-          <input type="submit" name="reset" id="reset" class="button-secondary clear-button" value="Clear Options">
+
         </h3>
       </div><!-- .settings-toolbar -->
     <?php

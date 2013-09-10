@@ -75,6 +75,15 @@ options.php
 - change action hook for metabox builder
 
 
+----
+- Switch out codemirror for ace editor
+- Add selectboxit select boxes
+- Add chosen select boxes
+- Add uniformjs elements
+- Add horizon selectbox
+- add http://bootstrapformhelpers.com/
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 2. Future Releases

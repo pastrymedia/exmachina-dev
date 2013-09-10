@@ -90,7 +90,22 @@ function exmachina_admin_register_styles() {
   /* Use the .min stylesheet if SCRIPT_DEBUG is turned off. */
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+  /* Register the uikit CSS stylesheet. */
+  wp_register_style( 'exmachina-uikit-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/css/uikit.gradient{$suffix}.css", false, '1.1.0', 'screen' );
+
+  /* Register the codemirror CSS stylesheet*/
+  wp_register_style( 'exmachina-codemirror-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.css", false, '3.1.6', 'screen' );
+
+  /* Register the main admin CSS stylesheet. */
+  wp_register_style( 'exmachina-core-colorpicker-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "colorpicker{$suffix}.css", false, EXMACHINA_VERSION, 'screen' );
+
+  wp_register_style( 'exmachina-horizon-colorpicker-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "colourpicker.css", false, EXMACHINA_VERSION, 'screen' );
+
+  wp_register_style( 'exmachina-horizon-selectbox-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "selectbox.css", false, EXMACHINA_VERSION, 'screen' );
+
+  /* Register the main admin CSS stylesheet. */
   wp_register_style( 'exmachina-core-admin-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "admin{$suffix}.css", false, EXMACHINA_VERSION, 'screen' );
+
 } // end function exmachina_admin_register_styles()
 
 /**
@@ -111,7 +126,38 @@ function exmachina_admin_register_scripts() {
   /* Use the .min script if SCRIPT_DEBUG is turned off. */
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-  wp_register_script( 'exmachina-core-uikit-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/js/uikit{$suffix}.js" ), array( 'jquery' ), '1.0.2', true );
+  /* Register the uikit JS scripts. */
+  wp_register_script( 'exmachina-uikit-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/js/uikit{$suffix}.js" ), array( 'jquery' ), '1.1.0', true );
+
+  /* Register codemirror JavaScripts. */
+  wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.js" ), array(), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-jsmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/javascript/javascript.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-cssmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/css/css.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-htmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/htmlmixed/htmlmixed.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-xmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/xml/xml.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-phpmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/php/php.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-clikemode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/clike/clike.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+
+
+  wp_register_script( 'exmachina-horizon-color-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "colourpicker.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+  wp_register_script( 'exmachina-horizon-font-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "font-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+  wp_register_script( 'exmachina-horizon-select-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "selectbox.js" ), array( 'jquery-ui-widget' ), EXMACHINA_VERSION, true );
+
+  wp_register_script( 'exmachina-admin-horizon-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "admin-scripts.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+  /* Register the main admin JS scripts. */
+  wp_register_script( 'exmachina-core-admin-colorpicker-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "colorpicker.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+  /* Register the main admin JS scripts. */
+  wp_register_script( 'exmachina-core-admin-typography-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "typography-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+  /* Register the main admin JS scripts. */
+  wp_register_script( 'exmachina-core-admin-setup-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "setup.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+  /* Register the main admin JS scripts. */
   wp_register_script( 'exmachina-core-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "admin.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
 } // end function exmachina_admin_register_scripts()

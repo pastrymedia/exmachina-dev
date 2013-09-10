@@ -445,12 +445,14 @@ class ExMachina {
     /* Check if in the WordPress admin. */
     if ( is_admin() ) {
 
+      /* Load the main admin file. */
       require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'admin.php' );
 
-    /* Load the theme settings page. */
-    require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'theme-settings.php' );
+      /* Load the theme settings page. */
+      require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'theme-settings.php' );
 
-    require_once( trailingslashit( EXMACHINA_ADMIN_OPTIONS ) . 'meta-box-demo.php' );
+      /* Load the settings test kit. */
+      require_once( trailingslashit( EXMACHINA_ADMIN_OPTIONS ) . 'meta-box-demo.php' );
 
     } // end if(is_admin())
   } // end function exmachina_load_admin()

@@ -11,3 +11,11 @@
  * @license http://opensource.org/licenses/gpl-2.0.php GPL-2.0+
  * @link <[link]>
  */
+
+jQuery(document).ready(function($) {
+
+  // Prepends close button to theme settings notices.
+  $( ".settings-error" ).attr( "data-uk-alert", '' ).prepend( "<button class='uk-alert-close uk-close'>" );
+
+});
+
