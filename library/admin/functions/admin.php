@@ -112,6 +112,9 @@ function exmachina_admin_vendor_register_styles() {
   /* Register the uniform CSS stylesheet. */
   wp_register_style( 'exmachina-uniform-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uniformjs/themes/default/css/uniform.default.min.css", false, '1.1.0', 'screen' );
 
+  /* Register the select2 CSS stylesheet. */
+  wp_register_style( 'exmachina-select-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select2/select2.css", false, '1.1.0', 'screen' );
+
   /* Register the codemirror CSS stylesheet*/
   wp_register_style( 'exmachina-codemirror-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.css", false, '3.1.6', 'screen' );
 
@@ -152,6 +155,9 @@ function exmachina_admin_vendor_register_scripts() {
 
   /* Register the uniform JS scripts. */
   wp_register_script( 'exmachina-uniform-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uniformjs/jquery.uniform.min.js" ), array( 'jquery' ), '1.1.0', true );
+
+  /* Register the select2 JS scripts. */
+  wp_register_script( 'exmachina-select-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select2/select2.min.js" ), array( 'jquery' ), '1.1.0', true );
 
   /* Register codemirror JavaScripts. */
   wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.js" ), array(), EXMACHINA_VERSION, true );
