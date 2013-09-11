@@ -147,6 +147,9 @@ function exmachina_admin_vendor_register_scripts() {
   /* Register the uniform JS scripts. */
   wp_register_script( 'exmachina-uniform-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uniformjs/jquery.uniform.min.js" ), array( 'jquery' ), '1.1.0', true );
 
+  /* Register the ace editor JS scripts. */
+  wp_register_script( 'exmachina-ace-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "ace/src-min-noconflict/ace.js" ), array( 'jquery' ), '1.1.0', true );
+
   /* Register codemirror JavaScripts. */
   wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.js" ), array(), EXMACHINA_VERSION, true );
   wp_register_script( 'exmachina-codemirror-jsmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/javascript/javascript.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );

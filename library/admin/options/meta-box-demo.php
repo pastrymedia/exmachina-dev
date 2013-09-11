@@ -110,7 +110,49 @@ class ExMachina_Demo_Metabox {
 
     add_meta_box('select_metabox', 'Select Metabox', array( $this, 'display_select_metabox' ), $_exmachina_admin_theme_settings, 'normal', 'high');
 
+    add_meta_box('ace_metabox', 'Ace Metabox', array( $this, 'display_ace_metabox' ), $_exmachina_admin_theme_settings, 'normal', 'high');
+
   } // end function register_metabox()
+
+  function display_ace_metabox() {
+    ?>
+    <!-- Begin Markup -->
+        <table class="uk-table postbox-table">
+            <tbody>
+                <tr>
+                    <td class="div info header" colspan="2">
+                    A favicon generally appears at the top of the web browser next to the title or URL of your website for your online visitors.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <fieldset class="uk-form">
+                        <div class="uk-form-controls uk-form-controls-text uk-form-controls-condensed">
+                            <pre id="ace-editor" class="">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}</pre>
+<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="<?php echo EXMACHINA_ADMIN_VENDOR . '/ace/src-noconflict/ace.js'; ?>" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    var editor = ace.edit("ace-editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.setShowPrintMargin(false);
+</script>
+                            <p class="uk-form-help-block">The <code>wp_footer()</code> hook executes immediately before the closing <code>body</code> tag in the document source.</p>
+                        </div>
+                        </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- End Markup -->
+    <?php
+  }
 
   function display_select_metabox() {
     ?>
