@@ -98,7 +98,7 @@
 				dataType : 'json',
 				type : 'POST',
 				beforeSend : function () {
-					fonts_container.find( ".font-preview" ).html( '<img src="' + page_data.root + '/_horizon/images/ajax/bar.gif" />' );
+					fonts_container.find( ".font-preview" ).html( '<img src="' + page_data.root + '/admin/assets/images/ajax/bar.gif" />' );
 				}
 			} ).
 				done(function ( data ) {

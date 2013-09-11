@@ -213,8 +213,6 @@ function exmachina_admin_register_scripts() {
   wp_register_script( 'exmachina-horizon-font-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "font-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
 
-  wp_register_script( 'exmachina-admin-horizon-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "admin-scripts.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-
   /* Register the main admin JS scripts. */
   wp_register_script( 'exmachina-core-admin-colorpicker-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "colorpicker.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 

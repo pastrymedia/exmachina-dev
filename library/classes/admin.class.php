@@ -764,8 +764,6 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     /* Enqueue ace editor JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-ace-js' );
 
-    wp_enqueue_script( 'exmachina-admin-horizon-js' );
-
     wp_enqueue_script( 'exmachina-horizon-font-js' );
 
     /* Enqueue admin JavaScript if on an admin settings screen. */
