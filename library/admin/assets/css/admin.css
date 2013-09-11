@@ -970,3 +970,13 @@ input.input_spinner:active {
 .weight {
   width: 140px !important;
 }
+
+
+
+#ace-editor, #embedded-ace-code {
+    height: 275px;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    border-bottom-right-radius: 0px;
+    margin-top: 5px;
+}
