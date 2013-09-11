@@ -66,8 +66,7 @@ i18n.php
 
 == Functions ==
 
-general.php
-- move functions to the utility.php file.
+
 
 options.php
 - add file description
@@ -77,11 +76,9 @@ options.php
 
 ----
 - Switch out codemirror for ace editor
-- Add selectboxit select boxes
-- Add chosen select boxes
-- Add uniformjs elements
-- Add horizon selectbox
-- add http://bootstrapformhelpers.com/
+
+
+
 
 
 

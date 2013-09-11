@@ -41,6 +41,10 @@ function exmachina_admin_setup() {
   /* Adds custom icons to the admin menu. */
   add_action( 'admin_head', 'exmachina_custom_admin_icons' );
 
+  /* Registers vendor stylesheets and javascripts for the framework. */
+  add_action( 'admin_enqueue_scripts', 'exmachina_admin_vendor_register_styles', 1 );
+  add_action( 'admin_enqueue_scripts', 'exmachina_admin_vendor_register_scripts', 1 );
+
   /* Registers admin stylesheets and javascripts for the framework. */
   add_action( 'admin_enqueue_scripts', 'exmachina_admin_register_styles', 1 );
   add_action( 'admin_enqueue_scripts', 'exmachina_admin_register_scripts', 1 );
@@ -74,6 +78,87 @@ function exmachina_custom_admin_icons() {
 } // end function exmachina_custom_admin_icons()
 
 /**
+ * Register Vendor Admin CSS Stylesheets
+ *
+ * Registers the framework's 'admin.css' stylesheet file. The function does not
+ * load the stylesheet. It merely registers it with WordPress.
+ *
+ * @see http://codex.wordpress.org/Function_Reference/wp_register_style
+ * @todo  prepare custom build uikit
+ *
+ * @since 2.2.3
+ * @return void
+ */
+function exmachina_admin_vendor_register_styles() {
+
+  /* Use the .min stylesheet if SCRIPT_DEBUG is turned off. */
+  $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+  /* Register the uikit CSS stylesheet. */
+  wp_register_style( 'exmachina-uikit-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/css/uikit.gradient{$suffix}.css", false, '1.1.0', 'screen' );
+
+  /* Register the selectbox CSS stylesheet. */
+  wp_register_style( 'exmachina-selectbox-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "selectbox/jquery.selectBoxIt.css", false, '1.1.0', 'screen' );
+
+  /* Register the minicolors CSS stylesheet. */
+  wp_register_style( 'exmachina-minicolors-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/jquery.minicolors.css", false, '1.1.0', 'screen' );
+
+  /* Register the chosen CSS stylesheet. */
+  wp_register_style( 'exmachina-chosen-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "chosen/chosen.min.css", false, '1.1.0', 'screen' );
+
+  /* Register the uniform CSS stylesheet. */
+  wp_register_style( 'exmachina-uniform-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uniformjs/themes/default/css/uniform.default.min.css", false, '1.1.0', 'screen' );
+
+  /* Register the codemirror CSS stylesheet*/
+  wp_register_style( 'exmachina-codemirror-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.css", false, '3.1.6', 'screen' );
+
+} // end function exmachina_admin_vendor_register_styles()
+
+/**
+ * Register Admin JS JavaScripts
+ *
+ * Registers the framework's 'admin.js' javascript file. The function does not
+ * load the javascript. It merely registers it with WordPress.
+ *
+ * @see http://codex.wordpress.org/Function_Reference/wp_register_script
+ * @todo  bring back minified scripts "admin{$suffix}.js"
+ * @todo  prepare custom build uikit
+ *
+ * @since 2.2.3
+ * @return void
+ */
+function exmachina_admin_vendor_register_scripts() {
+
+  /* Use the .min script if SCRIPT_DEBUG is turned off. */
+  $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+  /* Register the uikit JS scripts. */
+  wp_register_script( 'exmachina-uikit-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/js/uikit{$suffix}.js" ), array( 'jquery' ), '1.1.0', true );
+
+  /* Register the selectbox JS scripts. */
+  wp_register_script( 'exmachina-selectbox-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "selectbox/jquery.selectBoxIt.min.js" ), array( 'jquery' ), '1.1.0', true );
+
+  /* Register the minicolors JS scripts. */
+  wp_register_script( 'exmachina-minicolors-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/jquery.minicolors.min.js" ), array( 'jquery' ), '1.1.0', true );
+
+  /* Register the chosne JS scripts. */
+  wp_register_script( 'exmachina-chosen-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "chosen/chosen.jquery.min.js" ), array( 'jquery' ), '1.1.0', true );
+
+  /* Register the uniform JS scripts. */
+  wp_register_script( 'exmachina-uniform-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uniformjs/jquery.uniform.min.js" ), array( 'jquery' ), '1.1.0', true );
+
+  /* Register codemirror JavaScripts. */
+  wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.js" ), array(), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-jsmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/javascript/javascript.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-cssmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/css/css.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-htmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/htmlmixed/htmlmixed.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-xmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/xml/xml.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-phpmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/php/php.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-clikemode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/clike/clike.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+
+} // end function exmachina_admin_vendor_register_scripts()
+
+/**
  * Register Admin CSS Stylesheets
  *
  * Registers the framework's 'admin.css' stylesheet file. The function does not
@@ -90,18 +175,14 @@ function exmachina_admin_register_styles() {
   /* Use the .min stylesheet if SCRIPT_DEBUG is turned off. */
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-  /* Register the uikit CSS stylesheet. */
-  wp_register_style( 'exmachina-uikit-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/css/uikit.gradient{$suffix}.css", false, '1.1.0', 'screen' );
-
-  /* Register the codemirror CSS stylesheet*/
-  wp_register_style( 'exmachina-codemirror-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.css", false, '3.1.6', 'screen' );
-
   /* Register the main admin CSS stylesheet. */
   wp_register_style( 'exmachina-core-colorpicker-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "colorpicker{$suffix}.css", false, EXMACHINA_VERSION, 'screen' );
 
-  wp_register_style( 'exmachina-horizon-colorpicker-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "colourpicker.css", false, EXMACHINA_VERSION, 'screen' );
+  /* Register the selectbox CSS stylesheet. */
+  wp_register_style( 'exmachina-core-admin-selectbox-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "selectbox.css", false, EXMACHINA_VERSION, 'screen' );
 
-  wp_register_style( 'exmachina-horizon-selectbox-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "selectbox.css", false, EXMACHINA_VERSION, 'screen' );
+  /* Register the minicolors CSS stylesheet. */
+  wp_register_style( 'exmachina-core-admin-minicolors-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "minicolors.css", false, EXMACHINA_VERSION, 'screen' );
 
   /* Register the main admin CSS stylesheet. */
   wp_register_style( 'exmachina-core-admin-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "admin{$suffix}.css", false, EXMACHINA_VERSION, 'screen' );
@@ -126,25 +207,8 @@ function exmachina_admin_register_scripts() {
   /* Use the .min script if SCRIPT_DEBUG is turned off. */
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-  /* Register the uikit JS scripts. */
-  wp_register_script( 'exmachina-uikit-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/js/uikit{$suffix}.js" ), array( 'jquery' ), '1.1.0', true );
-
-  /* Register codemirror JavaScripts. */
-  wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.js" ), array(), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-jsmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/javascript/javascript.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-cssmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/css/css.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-htmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/htmlmixed/htmlmixed.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-xmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/xml/xml.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-phpmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/php/php.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-clikemode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/clike/clike.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-
-
-
-  wp_register_script( 'exmachina-horizon-color-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "colourpicker.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-
   wp_register_script( 'exmachina-horizon-font-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "font-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
-  wp_register_script( 'exmachina-horizon-select-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "selectbox.js" ), array( 'jquery-ui-widget' ), EXMACHINA_VERSION, true );
 
   wp_register_script( 'exmachina-admin-horizon-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "admin-scripts.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
@@ -161,4 +225,6 @@ function exmachina_admin_register_scripts() {
   wp_register_script( 'exmachina-core-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "admin.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
 } // end function exmachina_admin_register_scripts()
+
+
 

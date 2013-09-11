@@ -108,7 +108,200 @@ class ExMachina_Demo_Metabox {
 
     add_meta_box('type_metabox', 'Typography Metabox', array( $this, 'display_type_metabox' ), $_exmachina_admin_theme_settings, 'normal', 'high');
 
+    add_meta_box('select_metabox', 'Select Metabox', array( $this, 'display_select_metabox' ), $_exmachina_admin_theme_settings, 'normal', 'high');
+
   } // end function register_metabox()
+
+  function display_select_metabox() {
+    ?>
+    <div class="basic-wrap">
+    <!-- Begin Markup -->
+    <fieldset class="uk-form uk-margin">
+      <legend>Chosen Standard Select</legend>
+<select data-placeholder="Choose a Country..." class="chosen-select" style="" tabindex="2">
+            <option value=""></option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Aland Islands">Aland Islands</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+          </select>
+    </fieldset>
+
+        <fieldset class="uk-form uk-margin">
+      <legend>Chosen Multiple Select</legend>
+        <select data-placeholder="Choose a Country..." class="chosen-select" multiple style="width:350px;" tabindex="4">
+            <option value=""></option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Aland Islands">Aland Islands</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+            <option value="American Samoa">American Samoa</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Anguilla">Anguilla</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Aruba">Aruba</option>
+            <option value="Australia">Australia</option>
+          </select>
+    </fieldset>
+
+      <fieldset class="uk-form uk-margin">
+      <legend>Optgroup Support</legend>
+        <select data-placeholder="Your Favorite Football Team" style="width:350px;" class="chosen-select" tabindex="5">
+            <option value=""></option>
+            <optgroup label="NFC EAST">
+              <option>Dallas Cowboys</option>
+              <option>New York Giants</option>
+              <option>Philadelphia Eagles</option>
+              <option>Washington Redskins</option>
+            </optgroup>
+            <optgroup label="NFC NORTH">
+              <option>Chicago Bears</option>
+              <option>Detroit Lions</option>
+              <option>Green Bay Packers</option>
+              <option>Minnesota Vikings</option>
+            </optgroup>
+            <optgroup label="NFC SOUTH">
+              <option>Atlanta Falcons</option>
+              <option>Carolina Panthers</option>
+              <option>New Orleans Saints</option>
+              <option>Tampa Bay Buccaneers</option>
+            </optgroup>
+            <optgroup label="NFC WEST">
+              <option>Arizona Cardinals</option>
+              <option>St. Louis Rams</option>
+              <option>San Francisco 49ers</option>
+              <option>Seattle Seahawks</option>
+            </optgroup>
+            <optgroup label="AFC EAST">
+              <option>Buffalo Bills</option>
+              <option>Miami Dolphins</option>
+              <option>New England Patriots</option>
+              <option>New York Jets</option>
+            </optgroup>
+            <optgroup label="AFC NORTH">
+              <option>Baltimore Ravens</option>
+              <option>Cincinnati Bengals</option>
+              <option>Cleveland Browns</option>
+              <option>Pittsburgh Steelers</option>
+            </optgroup>
+            <optgroup label="AFC SOUTH">
+              <option>Houston Texans</option>
+              <option>Indianapolis Colts</option>
+              <option>Jacksonville Jaguars</option>
+              <option>Tennessee Titans</option>
+            </optgroup>
+            <optgroup label="AFC WEST">
+              <option>Denver Broncos</option>
+              <option>Kansas City Chiefs</option>
+              <option>Oakland Raiders</option>
+              <option>San Diego Chargers</option>
+            </optgroup>
+          </select>
+
+          <select data-placeholder="Your Favorite Football Team" style="width:350px;" class="chosen-select" multiple tabindex="6">
+            <option value=""></option>
+            <optgroup label="NFC EAST">
+              <option>Dallas Cowboys</option>
+              <option>New York Giants</option>
+              <option>Philadelphia Eagles</option>
+              <option>Washington Redskins</option>
+            </optgroup>
+            <optgroup label="NFC NORTH">
+              <option>Chicago Bears</option>
+              <option>Detroit Lions</option>
+              <option>Green Bay Packers</option>
+              <option>Minnesota Vikings</option>
+            </optgroup>
+            <optgroup label="NFC SOUTH">
+              <option>Atlanta Falcons</option>
+              <option>Carolina Panthers</option>
+              <option>New Orleans Saints</option>
+              <option>Tampa Bay Buccaneers</option>
+            </optgroup>
+            <optgroup label="NFC WEST">
+              <option>Arizona Cardinals</option>
+              <option>St. Louis Rams</option>
+              <option>San Francisco 49ers</option>
+              <option>Seattle Seahawks</option>
+            </optgroup>
+            <optgroup label="AFC EAST">
+              <option>Buffalo Bills</option>
+              <option>Miami Dolphins</option>
+              <option>New England Patriots</option>
+              <option>New York Jets</option>
+            </optgroup>
+            <optgroup label="AFC NORTH">
+              <option>Baltimore Ravens</option>
+              <option>Cincinnati Bengals</option>
+              <option>Cleveland Browns</option>
+              <option>Pittsburgh Steelers</option>
+            </optgroup>
+            <optgroup label="AFC SOUTH">
+              <option>Houston Texans</option>
+              <option>Indianapolis Colts</option>
+              <option>Jacksonville Jaguars</option>
+              <option>Tennessee Titans</option>
+            </optgroup>
+            <optgroup label="AFC WEST">
+              <option>Denver Broncos</option>
+              <option>Kansas City Chiefs</option>
+              <option>Oakland Raiders</option>
+              <option>San Diego Chargers</option>
+            </optgroup>
+          </select>
+    </fieldset>
+
+     <fieldset class="uk-form uk-margin">
+      <legend>Uniform Form Elements</legend>
+
+      <div class='select-radio'>
+              <label>Select Dropdown</label>
+              <select class="uniform">
+                <option value='option1'>Option 1</option>
+                <option value='option2'>Option 2</option>
+                <option value='option3'>Option 3</option>
+              </select>
+              <label><input class="uniform" name='rgroup' type='radio' value='radio1' />Radio 1</label>
+              <label><input class="uniform" name='rgroup' type='radio' value='radio2' />Radio 2</label>
+              <label><input class="uniform" name='rgroup' type='radio' value='radio3' />Radio 3</label>
+            </div>
+            <div class='file-checkbox'>
+              <label>File Upload</label>
+              <input class='file uniform' type='file' />
+              <label><input class="uniform" type='checkbox' value='check1' /> Checkbox 1</label>
+              <label><input class="uniform" type='checkbox' value='check2' /> Checkbox 2</label>
+              <label><input class="uniform" type='checkbox' value='check3' checked="CHECKED" /> Checkbox 3</label>
+            </div>
+            <div class='inputs'>
+              <input class="uniform" type='text' placeholder="Single line input">
+            </div>
+          </form>
+          <div class='controls'>
+            <a rel="disable" class="btn" href="#">Disable All</a>
+            <a rel="reset" class="btn" href="#">Reset All</a>
+            <form method="get" action="">
+              Pick another theme:<br>
+              <select class="uniform" name="theme" id="theme">
+                <option value="agent">Agent</option>
+                <option value="aristo">Aristo</option>
+                <option value="default">Default</option>
+                <option value="jeans">Jeans</option>
+              </select>
+
+    </fieldset>
+
+    <!-- End Markup -->
+    </div>
+    <?php
+  }
 
   function display_type_metabox() {
     ?>
