@@ -761,13 +761,10 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     /* Enqueue uniform JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-uniform-js' );
 
-    /* Enqueue ace editor JavaScript if on an admin settings screen. */
-    wp_enqueue_script( 'exmachina-ace-js' );
-
     wp_enqueue_script( 'exmachina-horizon-font-js' );
 
     /* Enqueue admin JavaScript if on an admin settings screen. */
-    wp_enqueue_script( 'exmachina-core-admin-colorpicker-js' );
+    wp_enqueue_script( 'exmachina-colorpicker-js' );
 
     /* Enqueue admin JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-core-admin-typography-js' );
@@ -819,7 +816,8 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     /* Enqueue uniform stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-uniform-css' );
 
-    wp_enqueue_style( 'exmachina-core-colorpicker-css' );
+    /* Enqueue colorpicker stylesheet if on an admin settings screen. */
+    wp_enqueue_style( 'exmachina-colorpicker-css' );
 
     /* Enqueue minicolors stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-core-admin-minicolors-css' );

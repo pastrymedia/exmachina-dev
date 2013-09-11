@@ -35,8 +35,6 @@
 	display: inline-block;
 }
 
-.minicolors-swatch-color{}
-
 /* Panel */
 .minicolors-panel {
 	top: 29px;
@@ -44,15 +42,8 @@
 	border: solid 1px #ddd;
 }
 
-.minicolors-position-bottom .minicolors-panel{}
-
 .minicolors-position-left .minicolors-panel {
 	left: -83px;
-}
-
-.minicolors-slider,
-.minicolors-opacity-slider {
-	cursor: crosshair;
 }
 
 /* Pickers */
@@ -71,8 +62,6 @@
 	text-align: left;
 	border: solid 1px #ddd;
 }
-
-.minicolors-theme-default.minicolors {}
 
 .minicolors-theme-default .minicolors-input {
 	margin: 0px;
