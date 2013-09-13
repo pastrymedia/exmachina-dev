@@ -25,6 +25,17 @@ jQuery(document).ready(function($){
   $(".pretty-select").selectBoxIt();
 });
 
+// Ui Slider
+jQuery(document).ready(function($){
+  $( "#slider" ).slider();
+});
+
+// WP Colorpicker
+// http://www.paulund.co.uk/adding-a-new-color-picker-with-wordpress-3-5
+jQuery(document).ready(function($){
+    $('.wp-color-picker-field').wpColorPicker();
+});
+
 // Minicolor picker
 jQuery(document).ready(function($){
   $('.colourpicker').minicolors({
@@ -47,6 +58,25 @@ jQuery(document).ready(function($){
       $(selector).chosen(config[selector]);
     }
 });
+
+
+// Select2
+jQuery(document).ready(function($){
+  $(".select-two").select2({
+    minimumResultsForSearch: 10
+  });
+});
+
+// Selectize
+jQuery(document).ready(function($){
+$('.selectize').selectize({
+          create: true,
+          sortField: 'text',
+          dropdownParent: null
+        });
+});
+
+
 
 // Uniform JS
 jQuery(document).ready(function($){

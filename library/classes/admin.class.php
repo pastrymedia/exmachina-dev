@@ -736,6 +736,8 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     wp_enqueue_script( 'wp-lists' );
     wp_enqueue_script( 'postbox' );
     wp_enqueue_script( 'jquery-ui-spinner' );
+    wp_enqueue_script( 'jquery-ui-slider' );
+    wp_enqueue_script( 'wp-color-picker' );
 
     /* Enqueue uikit JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-uikit-admin-js' );
@@ -761,10 +763,19 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     /* Enqueue uniform JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-uniform-js' );
 
+    /* Enqueue select2 JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-select-js' );
+
     wp_enqueue_script( 'exmachina-horizon-font-js' );
 
     /* Enqueue admin JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-colorpicker-js' );
+
+    /* Enqueue admin JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-selectize-js' );
+
+    /* Enqueue admin JavaScript if on an admin settings screen. */
+    wp_enqueue_script( 'exmachina-bootstrap-admin-js' );
 
     /* Enqueue admin JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-core-admin-typography-js' );
@@ -801,6 +812,13 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     /* Enqueue uikit stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-uikit-admin-css' );
 
+    wp_enqueue_style( 'wp-color-picker' );
+
+    wp_enqueue_style( 'exmachina-jquery-ui-css' );
+
+    /* Enqueue bootstrap stylesheet if on an admin settings screen. */
+    //wp_enqueue_style( 'exmachina-bootstrap-admin-css' );
+
     /* Enqueue selectbox stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-selectbox-css' );
 
@@ -816,6 +834,9 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     /* Enqueue uniform stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-uniform-css' );
 
+    /* Enqueue select2 stylesheet if on an admin settings screen. */
+    wp_enqueue_style( 'exmachina-select-css' );
+
     /* Enqueue colorpicker stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-colorpicker-css' );
 
@@ -824,6 +845,10 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
 
     /* Enqueue selectbox stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-core-admin-selectbox-css' );
+
+    /* Enqueue selectize stylesheet if on an admin settings screen. */
+    wp_enqueue_style( 'exmachina-selectize-css' );
+    wp_enqueue_style( 'exmachina-selectize-default-css' );
 
     /* Enqueue admin stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-core-admin-css' );

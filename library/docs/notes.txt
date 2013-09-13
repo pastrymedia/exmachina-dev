@@ -76,6 +76,7 @@ options.php
 
 ----
 - Switch out codemirror for ace editor
+- add selectize and drop the other selectors http://brianreavis.github.io/selectize.js/
 
 
 

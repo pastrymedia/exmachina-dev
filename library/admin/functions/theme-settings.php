@@ -1064,7 +1064,7 @@ class ExMachina_Admin_Theme_Settings extends ExMachina_Admin_Metaboxes {
     ?>
       <div class="basic-wrap">
       <div class="field">
-        <?php submit_button( $this->page_ops['save_button_text'], 'primary button-hero update-button btn-block', 'submit', false, array( 'id' => '' ) ); ?>
+        <?php submit_button( $this->page_ops['save_button_text'], 'primary button-hero update-button uk-button-expand', 'submit', false, array( 'id' => '' ) ); ?>
       </div><!-- .field -->
       </div><!-- .basic-wrap -->
     <?php

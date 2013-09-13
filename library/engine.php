@@ -450,6 +450,15 @@ class ExMachina {
 
       /* Load the theme settings page. */
       require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'theme-settings.php' );
+      require_once( trailingslashit( EXMACHINA_ADMIN_FUNCTIONS ) . 'sample-settings.php' );
+
+      /* Load the custom metaboxes include. */
+      require_once( trailingslashit( EXMACHINA_ADMIN_INCLUDES ) . 'metaboxes/custom-meta-boxes.php' );
+      require_once( trailingslashit( EXMACHINA_ADMIN_INCLUDES ) . 'metaboxes/example-functions.php' );
+      //require_once( trailingslashit( EXMACHINA_ADMIN_INCLUDES ) . 'custom-metaboxes/init.php' );
+      //require_once( trailingslashit( EXMACHINA_ADMIN_INCLUDES ) . 'custom-metaboxes/example-functions.php' );
+      require_once( trailingslashit( EXMACHINA_ADMIN_INCLUDES ) . 'redux/options/defaults.php' );
+      require_once( trailingslashit( EXMACHINA_ADMIN_INCLUDES ) . 'redux/options.php' );
 
       /* Load the settings test kit. */
       require_once( trailingslashit( EXMACHINA_ADMIN_OPTIONS ) . 'meta-box-demo.php' );
