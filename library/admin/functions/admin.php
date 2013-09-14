@@ -100,30 +100,11 @@ function exmachina_admin_vendor_register_styles() {
   /* Register the bootstrap CSS stylesheet. */
   wp_register_style( 'exmachina-bootstrap-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "bootstrap/dist/css/bootstrap{$suffix}.css", false, '1.1.0', 'screen' );
 
-  /* Register the selectbox CSS stylesheet. */
-  wp_register_style( 'exmachina-selectbox-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "selectbox/jquery.selectBoxIt.css", false, '1.1.0', 'screen' );
-
   /* Register the minicolors CSS stylesheet. */
   wp_register_style( 'exmachina-minicolors-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/jquery.minicolors.css", false, '1.1.0', 'screen' );
 
-  /* Register the chosen CSS stylesheet. */
-  wp_register_style( 'exmachina-chosen-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "chosen/chosen.min.css", false, '1.1.0', 'screen' );
-
-  /* Register the colorpicker CSS stylesheet. */
-  wp_register_style( 'exmachina-colorpicker-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "colorpicker/custom/colorpicker.min.css", false, '1.1.0', 'screen' );
-
-  /* Register the uniform CSS stylesheet. */
-  wp_register_style( 'exmachina-uniform-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uniformjs/themes/default/css/uniform.default.min.css", false, '1.1.0', 'screen' );
-
   /* Register the select2 CSS stylesheet. */
   wp_register_style( 'exmachina-select-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select2/select2.css", false, '1.1.0', 'screen' );
-
-  /* Register the jQuery UI CSS stylesheet. */
-  wp_register_style( 'exmachina-jquery-ui-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.min.css", false, '1.1.0', 'screen' );
-
-  /* Register the selectize CSS stylesheet. */
-  wp_register_style( 'exmachina-selectize-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "selectize/dist/css/selectize.css", false, '1.1.0', 'screen' );
-  wp_register_style( 'exmachina-selectize-default-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "selectize/dist/css/selectize.default.css", false, '1.1.0', 'screen' );
 
   /* Register the codemirror CSS stylesheet*/
   wp_register_style( 'exmachina-codemirror-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.css", false, '3.1.6', 'screen' );
@@ -154,26 +135,11 @@ function exmachina_admin_vendor_register_scripts() {
   /* Register the uikit JS scripts. */
   wp_register_script( 'exmachina-bootstrap-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "bootstrap/dist/js/bootstrap{$suffix}.js" ), array( 'jquery' ), '1.1.0', true );
 
-  /* Register the selectbox JS scripts. */
-  wp_register_script( 'exmachina-selectbox-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "selectbox/jquery.selectBoxIt.min.js" ), array( 'jquery' ), '1.1.0', true );
-
   /* Register the minicolors JS scripts. */
   wp_register_script( 'exmachina-minicolors-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/jquery.minicolors.min.js" ), array( 'jquery' ), '1.1.0', true );
 
-  /* Register the chosen JS scripts. */
-  wp_register_script( 'exmachina-chosen-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "chosen/chosen.jquery.min.js" ), array( 'jquery' ), '1.1.0', true );
-
-  /* Register the colorpicker JS scripts. */
-  wp_register_script( 'exmachina-colorpicker-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "colorpicker/custom/colorpicker.js" ), array( 'jquery' ), '1.1.0', true );
-
-  /* Register the uniform JS scripts. */
-  wp_register_script( 'exmachina-uniform-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uniformjs/jquery.uniform.min.js" ), array( 'jquery' ), '1.1.0', true );
-
   /* Register the select2 JS scripts. */
   wp_register_script( 'exmachina-select-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select2/select2.min.js" ), array( 'jquery' ), '1.1.0', true );
-
-  /* Register the selectize JS scripts. */
-  wp_register_script( 'exmachina-selectize-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "selectize/dist/js/standalone/selectize.min.js" ), array( 'jquery' ), '1.1.0', true );
 
   /* Register codemirror JavaScripts. */
   wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.js" ), array(), EXMACHINA_VERSION, true );
@@ -205,9 +171,6 @@ function exmachina_admin_register_styles() {
   /* Use the .min stylesheet if SCRIPT_DEBUG is turned off. */
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-  /* Register the selectbox CSS stylesheet. */
-  wp_register_style( 'exmachina-core-admin-selectbox-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "selectbox.css", false, EXMACHINA_VERSION, 'screen' );
-
   /* Register the minicolors CSS stylesheet. */
   wp_register_style( 'exmachina-core-admin-minicolors-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "minicolors.css", false, EXMACHINA_VERSION, 'screen' );
 
@@ -233,8 +196,6 @@ function exmachina_admin_register_scripts() {
 
   /* Use the .min script if SCRIPT_DEBUG is turned off. */
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-  wp_register_script( 'exmachina-horizon-font-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "font-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
   /* Register the main admin JS scripts. */
   wp_register_script( 'exmachina-core-admin-typography-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "typography-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
