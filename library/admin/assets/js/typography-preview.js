@@ -27,8 +27,6 @@
 
     },
 
-
-
     /**
      * generatePreview()
      *
@@ -166,8 +164,10 @@
     		explain.next( '.typography-preview-wrap' ).find( '.typography-preview' ).attr( 'style', previewStyles );
     	}
 
-    }
+        // Set the button to "refresh" mode.
+        controls.find( '.typography-preview-button i' ).removeClass( 'uk-icon-search' ).addClass( 'uk-icon-refresh' );
 
+    }
 
   }; // End ExMachinaTypographyPreview Object // Don't remove this, or the sky will fall on your head.
 

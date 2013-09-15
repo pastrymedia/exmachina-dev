@@ -2022,14 +2022,13 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                           <input class="colourpicker minicolors-input typography-color pick-color" id="font_body_color" name="" type="text" rel="color" value="#333333" size="7" maxlength="7">
 
                           <!-- Preview Button -->
-                          <a href="#" class="uk-button typography-preview-button"><i class="uk-icon-refresh"></i></a>
+                          <a href="#" class="uk-button typography-preview-button"><i class="uk-icon-search"></i></a>
 
                         </div><!-- .typography-controls -->
                         <!-- End Typography Controls -->
 
                         <!-- Begin Font Preview -->
                         <div class="explain"></div>
-
                         <div class="clear"> </div>
                         <!-- End Font Preview -->
 

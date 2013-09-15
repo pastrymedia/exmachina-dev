@@ -8,16 +8,7 @@
 
 (function ($) {
 
-  exmachinathemesAdmin = {
-
-
-
-
-
-
-
-
-
+  ExMachinaAdminInterface = {
 
 /**
  * setup_custom_typography()
@@ -52,7 +43,7 @@
  * @since 4.8.0
  */
 
- 	setup_colourpickers: function () {
+ 	setup_colorpickers: function () {
  		if ( jQuery().ColorPicker && $( '.section-typography, .section-border, .section-color' ).length ) {
  			$( '.section-typography, .section-border, .section-color' ).each( function () {
 
@@ -67,14 +58,6 @@
 	 			$( '#' + picker_id ).children( 'div' ).css( 'backgroundColor', color );
 				$( '#' + picker_id ).ColorPicker({
 					color: color,
-					onShow: function ( colpkr ) {
-						jQuery( colpkr ).fadeIn( 200 );
-						return false;
-					},
-					onHide: function ( colpkr ) {
-						jQuery( colpkr ).fadeOut( 200 );
-						return false;
-					},
 					onChange: function ( hsb, hex, rgb ) {
 						$( '#' + picker_id ).children( 'div' ).css( 'backgroundColor', '#' + hex );
 						$( '#' + picker_id ).next( 'input' ).attr( 'value', '#' + hex );
@@ -88,21 +71,17 @@
 
 
 
-
-
-
-
-  }; // End exmachinathemesAdminInterface Object // Don't remove this, or the sky will fall on your head.
+  }; // End ExMachinaAdminInterfaceInterface Object // Don't remove this, or the sky will fall on your head.
 
 /**
- * Execute the above methods in the exmachinathemesAdminInterface object.
+ * Execute the above methods in the ExMachinaAdminInterfaceInterface object.
  *
  * @since 4.8.0
  */
 	$(document).ready(function () {
 
-		exmachinathemesAdmin.setup_custom_typography();
-		exmachinathemesAdmin.setup_colourpickers();
+		ExMachinaAdminInterface.setup_custom_typography();
+		ExMachinaAdminInterface.setup_colorpickers();
 
 
 	});
