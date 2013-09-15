@@ -1952,98 +1952,82 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                   <p class="uk-margin-top-remove">To apply this component, add the <code>.uk-form</code> class to a form element. All form control elements are placed side by side within the next row.</p>
                   <div class="uk-form-row">
                     <div class="uk-form-controls uk-form-controls-text">
-                      <!-- Begin Form Inputs -->
-                      <div class="uk-panel uk-panel-box uk-form-controls-condensed typography-controls">
-                        <!-- Size Select -->
-                        <select class="uk-form-width-mini pretty-select typography-size typography-size-px" id="" style="">
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                          <option value="13">13</option>
-                          <option value="14">14</option>
-                          <option value="15">15</option>
-                          <option value="16">16</option>
-                          <option value="17">17</option>
-                          <option value="18">18</option>
-                          <option value="19">19</option>
-                          <option value="20">20</option>
-                        </select>
-                        <!-- Unit Select -->
-                        <select class="uk-form-width-mini pretty-select typography-unit" id="" style="">
-                          <option value="px">px</option>
-                          <option value="em">em</option>
-                        </select>
-                        <!-- Font Select -->
-                        <select id="" class="uk-form-width-medium pretty-select" placeholder="Select a font...">
-                          <optgroup label="Basic Fonts">
-                            <option>Arial</option>
-                            <option>Arial Black</option>
-                            <option>Comic Sans MS</option>
-                            <option>Courier New</option>
-                            <option>Georgia</option>
-                            <option>Impact</option>
-                            <option>Palatino Linotype</option>
-                            <option>Lucida Console</option>
-                            <option>Lucida Sans Unicode</option>
-                            <option>Times New Roman</option>
-                            <option>Tahoma</option>
-                            <option>Trebuchet MS</option>
-                            <option>Verdana</option>
-                          </optgroup>
-                          <optgroup label="Google Web Fonts">
-                            <option>ABeeZee</option>
-                            <option>Abel</option>
-                            <option>Abril Fatface</option>
-                            <option>Aclonica</option>
-                            <option>Acme</option>
-                            <option>Actor</option>
-                            <option>Adamina</option>
-                            <option>Advent Pro</option>
-                            <option>Aguafina Script</option>
-                            <option>Akronim</option>
-                            <option>Aladin</option>
-                            <option>Aldrich</option>
-                            <option>Alef</option>
-                            <option>Alegreya</option>
-                            <option>Alegreya SC</option>
-                            <option>Alex Brush</option>
-                            <option>Alfa Slab One</option>
-                            <option>Alice</option>
-                            <option>Alike</option>
-                            <option>Alike Angular</option>
-                            <option>Yanone Kaffeesatz</option>
-                            <option>Yellowtail</option>
-                            <option>Yeseva One</option>
-                            <option>Yesteryear</option>
-                            <option>Zeyada</option>
-                          </optgroup>
-                        </select>
-                        <!-- Font Weight Select -->
-                        <select id="" class="uk-form-width-small pretty-select" placeholder="Select a weight...">
-                          <optgroup label="Font Weight">
-                            <option value="300">Light</option>
-                            <option value="300italic">Light Italic</option>
-                            <option value="regular" selected="">Regular</option>
-                            <option value="italic">Italic</option>
-                            <option value="700">Bold</option>
-                            <option value="700italic">Bold Italic</option>
-                            <option value="900">Extra Bold</option>
-                            <option value="900italic">Extra Bold Italic</option>
-                          </optgroup>
-                        </select>
-                        <!-- Color Picker -->
-                        <input class="colourpicker minicolors-input" id="" name="" type="text" rel="color" value="#333333" size="7" maxlength="7">
-                        <!-- Preview Button -->
-                        <a href="#" class="uk-button"><i class="uk-icon-refresh"></i></a>
-                      </div><!-- .typography-controls -->
-                      <!-- End Form Inputs -->
-                      <!-- Begin Font Preview -->
-                      <div class="typography-preview-wrap">
-                        <div class="uk-panel uk-panel-box uk-panel-box-secondary typography-preview">
-                        Grumpy wizards make toxic brew for the evil Queen and Jack.
-                        </div><!-- .typography-preview -->
-                      </div><!-- .typography-preview-wrap -->
-                      <!-- End Font Preview -->
+
+                      <div class="section section-typography">
+
+                                    <div class="controls">
+                                        <select class="woo-typography woo-typography-size woo-typography-size-px" id="woo_font_body_size_px" style="display:none">
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                        </select>
+
+                                        <select class="woo-typography woo-typography-size woo-typography-size-em" id="woo_font_body_size_em" name="woo_font_body_size">
+                                            <option value="2.1">2.1</option>
+                                            <option value="2.2">2.2</option>
+                                            <option value="2.3">2.3</option>
+                                            <option value="2.4">2.4</option>
+                                            <option value="2.5">2.5</option>
+                                            <option value="2.6">2.6</option>
+                                            <option value="2.7">2.7</option>
+                                            <option value="2.8">2.8</option>
+                                            <option value="2.9">2.9</option>
+                                        </select>
+
+                                        <select class="woo-typography woo-typography-unit" name="woo_font_body_unit" id="woo_font_body_unit">
+                                            <option value="px">px</option>
+                                            <option value="em" selected="selected">em</option>
+                                        </select>
+
+                                        <select class="woo-typography woo-typography-face" name="woo_font_body_face" id="woo_font_body_face">
+                                            <option selected="selected" value="Arial, sans-serif">Arial</option>
+                                            <option value="Verdana, Geneva, sans-serif">Verdana</option>
+                                            <option value="Georgia, serif">Georgia</option>
+                                            <option value="Tahoma, Geneva, Verdana, sans-serif">Tahoma</option>
+                                            <option value="Geneva, Tahoma, Verdana, sans-serif">Geneva*</option>
+                                            <option value="Impact, Charcoal, sans-serif">Impact</option>
+                                            <option value="">-- Google Fonts --</option>
+                                            <option value="Architects Daughter">Architects Daughter</option>
+                                            <option value="Arimo">Arimo</option>
+                                            <option value="Cabin">Cabin</option>
+                                            <option value="Chivo">Chivo</option>
+                                            <option value="Lato">Lato</option>
+                                            <option value="Lobster">Lobster</option>
+                                            <option value="Lobster Two">Lobster Two</option>
+                                            <option value="Oswald">Oswald</option>
+                                            <option value="Rock Salt">Rock Salt</option>
+                                            <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
+                                        </select>
+
+                                        <select class="woo-typography woo-typography-style" name="woo_font_body_style" id="woo_font_body_style">
+                                            <option selected="selected" value="300">Thin</option>
+                                            <option value="300 italic">Thin/Italic</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="italic">Italic</option>
+                                            <option value="bold">Bold</option>
+                                            <option value="bold italic">Bold/Italic</option>
+                                        </select>
+
+                                        <div id="woo_font_body_color_picker" class="colorSelector">
+                                            <div style="background-color: rgb(62, 62, 62);"></div>
+                                        </div>
+                                        <input class="colourpicker minicolors-input woo-color woo-typography woo-typography-color" id="woo_font_body_color" name="woo_font_body_color" type="text" rel="color" value="#333333" size="7" maxlength="7">
+                                        <br>
+                                    </div>
+                                    <div class="explain"></div>
+                                    <div class="clear"> </div>
+
+                                </div><!-- .section-typography -->
+
+
                     </div><!-- .uk-form-controls -->
                   </div><!-- .uk-form-row -->
                   <p class="uk-text-muted"><span class="uk-badge">NOTE</span> In this example we used a button from the <a href="#">Button component</a>.</p>
