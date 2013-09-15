@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
 
 // Select2
 jQuery(document).ready(function($){
-  $(".select-two").select2({
+  $(".pretty-select").select2({
     minimumResultsForSearch: 10
   });
 });

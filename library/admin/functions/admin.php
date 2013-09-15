@@ -95,19 +95,19 @@ function exmachina_admin_vendor_register_styles() {
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
   /* Register the uikit CSS stylesheet. */
-  wp_register_style( 'exmachina-uikit-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/css/uikit.gradient{$suffix}.css", false, '1.1.0', 'screen' );
+  wp_register_style( 'exmachina-uikit-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/css/uikit.gradient{$suffix}.css", false, '1.1.0', 'screen' );
 
   /* Register the bootstrap CSS stylesheet. */
-  wp_register_style( 'exmachina-bootstrap-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "bootstrap/dist/css/bootstrap{$suffix}.css", false, '1.1.0', 'screen' );
+  wp_register_style( 'exmachina-bootstrap-admin-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "bootstrap/css/bootstrap{$suffix}.css", false, '3.0.0', 'screen' );
 
   /* Register the minicolors CSS stylesheet. */
-  wp_register_style( 'exmachina-minicolors-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/jquery.minicolors.css", false, '1.1.0', 'screen' );
+  wp_register_style( 'exmachina-minicolors-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/css/jquery.minicolors{$suffix}.css", false, '2.1.0', 'screen' );
 
   /* Register the select2 CSS stylesheet. */
-  wp_register_style( 'exmachina-select-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select2/select2.css", false, '1.1.0', 'screen' );
+  wp_register_style( 'exmachina-select-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select/css/select{$suffix}.css", false, '3.4.2', 'screen' );
 
   /* Register the codemirror CSS stylesheet*/
-  wp_register_style( 'exmachina-codemirror-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.css", false, '3.1.6', 'screen' );
+  wp_register_style( 'exmachina-codemirror-css', trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/css/codemirror{$suffix}.css", false, '3.1.6', 'screen' );
 
 } // end function exmachina_admin_vendor_register_styles()
 
@@ -130,25 +130,20 @@ function exmachina_admin_vendor_register_scripts() {
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
   /* Register the uikit JS scripts. */
-  wp_register_script( 'exmachina-uikit-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/custom/js/uikit{$suffix}.js" ), array( 'jquery' ), '1.1.0', true );
+  wp_register_script( 'exmachina-uikit-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "uikit/js/uikit{$suffix}.js" ), array( 'jquery' ), '1.1.0', true );
 
   /* Register the uikit JS scripts. */
-  wp_register_script( 'exmachina-bootstrap-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "bootstrap/dist/js/bootstrap{$suffix}.js" ), array( 'jquery' ), '1.1.0', true );
+  wp_register_script( 'exmachina-bootstrap-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "bootstrap/js/bootstrap{$suffix}.js" ), array( 'jquery' ), '3.0.0', true );
 
   /* Register the minicolors JS scripts. */
-  wp_register_script( 'exmachina-minicolors-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/jquery.minicolors.min.js" ), array( 'jquery' ), '1.1.0', true );
+  wp_register_script( 'exmachina-minicolors-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "minicolors/js/jquery.minicolors{$suffix}.js" ), array( 'jquery' ), '2.1.0', true );
 
   /* Register the select2 JS scripts. */
-  wp_register_script( 'exmachina-select-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select2/select2.min.js" ), array( 'jquery' ), '1.1.0', true );
+  wp_register_script( 'exmachina-select-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "select/js/select{$suffix}.js" ), array( 'jquery' ), '3.4.2', true );
 
   /* Register codemirror JavaScripts. */
-  wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/lib/codemirror.js" ), array(), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-jsmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/javascript/javascript.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-cssmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/css/css.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-htmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/htmlmixed/htmlmixed.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-xmlmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/xml/xml.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-phpmode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/php/php.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-  wp_register_script( 'exmachina-codemirror-clikemode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/mode/clike/clike.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-codemirror-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/js/codemirror{$suffix}.js" ), array(), '3.1.6', true );
+  wp_register_script( 'exmachina-codemirror-mode-js', esc_url( trailingslashit( EXMACHINA_ADMIN_VENDOR ) . "codemirror/js/codemirror.mode{$suffix}.js" ), array( 'jquery' ), '3.1.6', true );
 
 } // end function exmachina_admin_vendor_register_scripts()
 
@@ -170,6 +165,9 @@ function exmachina_admin_register_styles() {
 
   /* Use the .min stylesheet if SCRIPT_DEBUG is turned off. */
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+  /* Register the main admin CSS stylesheet. */
+  wp_register_style( 'exmachina-core-admin-normalize-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "normalize.css", false, EXMACHINA_VERSION, 'screen' );
 
   /* Register the minicolors CSS stylesheet. */
   wp_register_style( 'exmachina-core-admin-minicolors-css', trailingslashit( EXMACHINA_ADMIN_CSS ) . "minicolors.css", false, EXMACHINA_VERSION, 'screen' );

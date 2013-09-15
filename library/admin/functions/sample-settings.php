@@ -493,7 +493,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                   <div class="uk-form-row">
                     <label class="uk-form-label" for="form-h-s">Pretty select</label>
                     <div class="uk-form-controls">
-                      <select id="" class="select-two" placeholder="Select a person...">
+                      <select id="" class="pretty-select" placeholder="Select a person...">
                         <option value="">Select a person...</option>
                         <option value="4">Thomas Edison</option>
                         <option value="1">Nikola</option>
@@ -506,7 +506,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                   <div class="uk-form-row">
                     <label class="uk-form-label" for="form-h-s">Pretty multiple</label>
                     <div class="uk-form-controls">
-                      <select id="" class="select-two" multiple="multiple" placeholder="Select a person...">
+                      <select id="" class="pretty-select" multiple="multiple" placeholder="Select a person...">
                         <option value="">Select a person...</option>
                         <option value="4">Thomas Edison</option>
                         <option value="1">Nikola</option>
@@ -1245,7 +1245,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                   <div class="uk-form-row">
                     <label class="uk-form-label" for="form-h-s">Pretty select</label>
                     <div class="uk-form-controls">
-                      <select id="" class="select-two" placeholder="Select a person...">
+                      <select id="" class="pretty-select" placeholder="Select a person...">
                         <option value="">Select a person...</option>
                         <option value="4">Thomas Edison</option>
                         <option value="1">Nikola</option>
@@ -1258,7 +1258,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                   <div class="uk-form-row">
                     <label class="uk-form-label" for="form-h-s">Pretty multiple</label>
                     <div class="uk-form-controls">
-                      <select id="" class="select-two" multiple="multiple" placeholder="Select a person...">
+                      <select id="" class="pretty-select" multiple="multiple" placeholder="Select a person...">
                         <option value="">Select a person...</option>
                         <option value="4">Thomas Edison</option>
                         <option value="1">Nikola</option>
@@ -1803,7 +1803,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                       <!-- Begin Form Inputs -->
                       <div class="uk-panel uk-panel-box uk-form-controls-condensed typography-controls">
                         <!-- Size Select -->
-                        <select class="uk-form-width-mini select-two typography-size typography-size-px" id="" style="">
+                        <select class="uk-form-width-mini pretty-select typography-size typography-size-px" id="" style="">
                           <option value="10">10</option>
                           <option value="11">11</option>
                           <option value="12">12</option>
@@ -1817,12 +1817,12 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                           <option value="20">20</option>
                         </select>
                         <!-- Unit Select -->
-                        <select class="uk-form-width-mini select-two typography-unit" id="" style="">
+                        <select class="uk-form-width-mini pretty-select typography-unit" id="" style="">
                           <option value="px">px</option>
                           <option value="em">em</option>
                         </select>
                         <!-- Font Select -->
-                        <select id="" class="uk-form-width-medium select-two" placeholder="Select a font...">
+                        <select id="" class="uk-form-width-medium pretty-select" placeholder="Select a font...">
                           <optgroup label="Basic Fonts">
                             <option>Arial</option>
                             <option>Arial Black</option>
@@ -1867,7 +1867,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                           </optgroup>
                         </select>
                         <!-- Font Weight Select -->
-                        <select id="" class="uk-form-width-small select-two" placeholder="Select a weight...">
+                        <select id="" class="uk-form-width-small pretty-select" placeholder="Select a weight...">
                           <optgroup label="Font Weight">
                             <option value="300">Light</option>
                             <option value="300italic">Light Italic</option>
@@ -1981,7 +1981,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                     <div class="uk-form-controls">
                       <!-- Begin Form Inputs -->
                       <textarea class="input-block-level vertical-resize code exmachina-code-area" rows="8" id="<?php echo $this->get_field_id( 'header_scripts' ); ?>"></textarea>
-                      <link rel="stylesheet" href="<?php echo EXMACHINA_ADMIN_VENDOR . '/codemirror/theme/monokai.css'; ?>">
+                      <link rel="stylesheet" href="<?php echo EXMACHINA_ADMIN_VENDOR . '/codemirror/css/theme/monokai.min.css'; ?>">
                       <script>
                         jQuery(document).ready(function($){
                             var editor_header_scripts = CodeMirror.fromTextArea(document.getElementById('<?= $this->get_field_id( 'header_scripts' );?>'), {

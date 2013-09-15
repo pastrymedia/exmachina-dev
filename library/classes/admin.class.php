@@ -745,12 +745,7 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
 
     /* Enqueue codemirror JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-codemirror-js' );
-    wp_enqueue_script( 'exmachina-codemirror-jsmode-js' );
-    wp_enqueue_script( 'exmachina-codemirror-cssmode-js' );
-    wp_enqueue_script( 'exmachina-codemirror-htmlmode-js' );
-    wp_enqueue_script( 'exmachina-codemirror-xmlmode-js' );
-    wp_enqueue_script( 'exmachina-codemirror-phpmode-js' );
-    wp_enqueue_script( 'exmachina-codemirror-clikemode-js' );
+    wp_enqueue_script( 'exmachina-codemirror-mode-js' );
 
     /* Enqueue select2 JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-select-js' );
@@ -791,6 +786,9 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
       return;
 
     wp_enqueue_style( 'wp-color-picker' );
+
+    /* Enqueue normalize stylesheet if on an admin settings screen. */
+    wp_enqueue_style( 'exmachina-core-admin-normalize-css' );
 
     /* Enqueue uikit stylesheet if on an admin settings screen. */
     wp_enqueue_style( 'exmachina-uikit-admin-css' );
