@@ -21,7 +21,7 @@
 
     loadPreviewButtons: function () {
 
-     var previewButtonHTML = '<a href="#" class="woo-typography-preview-button button submit-button" title="' + 'Preview your customized typography settings' + '"><span>' + '+' + '</span></a>';
+     var previewButtonHTML = '<a href="#" class="uk-button woo-typography-preview-button button submit-button" title="' + 'Preview your customized typography settings' + '"><span>' + '+' + '</span></a>';
 
      $( 'input.woo-typography-color' ).each( function ( i ) {
      	$( this ).after( previewButtonHTML );
@@ -187,7 +187,7 @@
     	if ( fontColor ) { previewStyles += ' color: ' + fontColor + ';'; }
 
     	// Construct preview HTML.
-    	var previewHTMLInner = jQuery( '<div />' ).addClass( 'current' ).addClass( 'typography-preview' ).text( previewText ).before( '<a href="#" class="preview_remove button">' + 'Close Preview' + '</a>' );
+    	var previewHTMLInner = jQuery( '<div />' ).addClass( 'current' ).addClass( 'uk-panel uk-panel-box uk-panel-box-secondary typography-preview' ).text( previewText ).before( '<a href="#" class="preview_remove button">' + 'Close Preview' + '</a>' );
 
     	previewHTML = jQuery( '<div />' ).addClass( 'typography-preview-container' ).html( previewHTMLInner );
 

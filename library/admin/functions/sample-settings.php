@@ -1952,82 +1952,80 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                   <p class="uk-margin-top-remove">To apply this component, add the <code>.uk-form</code> class to a form element. All form control elements are placed side by side within the next row.</p>
                   <div class="uk-form-row">
                     <div class="uk-form-controls uk-form-controls-text">
-
                       <div class="section section-typography">
-
-                                    <div class="controls">
-                                        <select class="woo-typography woo-typography-size woo-typography-size-px" id="woo_font_body_size_px" style="display:none">
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                        </select>
-
-                                        <select class="woo-typography woo-typography-size woo-typography-size-em" id="woo_font_body_size_em" name="woo_font_body_size">
-                                            <option value="2.1">2.1</option>
-                                            <option value="2.2">2.2</option>
-                                            <option value="2.3">2.3</option>
-                                            <option value="2.4">2.4</option>
-                                            <option value="2.5">2.5</option>
-                                            <option value="2.6">2.6</option>
-                                            <option value="2.7">2.7</option>
-                                            <option value="2.8">2.8</option>
-                                            <option value="2.9">2.9</option>
-                                        </select>
-
-                                        <select class="woo-typography woo-typography-unit" name="woo_font_body_unit" id="woo_font_body_unit">
-                                            <option value="px">px</option>
-                                            <option value="em" selected="selected">em</option>
-                                        </select>
-
-                                        <select class="woo-typography woo-typography-face" name="woo_font_body_face" id="woo_font_body_face">
-                                            <option selected="selected" value="Arial, sans-serif">Arial</option>
-                                            <option value="Verdana, Geneva, sans-serif">Verdana</option>
-                                            <option value="Georgia, serif">Georgia</option>
-                                            <option value="Tahoma, Geneva, Verdana, sans-serif">Tahoma</option>
-                                            <option value="Geneva, Tahoma, Verdana, sans-serif">Geneva*</option>
-                                            <option value="Impact, Charcoal, sans-serif">Impact</option>
-                                            <option value="">-- Google Fonts --</option>
-                                            <option value="Architects Daughter">Architects Daughter</option>
-                                            <option value="Arimo">Arimo</option>
-                                            <option value="Cabin">Cabin</option>
-                                            <option value="Chivo">Chivo</option>
-                                            <option value="Lato">Lato</option>
-                                            <option value="Lobster">Lobster</option>
-                                            <option value="Lobster Two">Lobster Two</option>
-                                            <option value="Oswald">Oswald</option>
-                                            <option value="Rock Salt">Rock Salt</option>
-                                            <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
-                                        </select>
-
-                                        <select class="woo-typography woo-typography-style" name="woo_font_body_style" id="woo_font_body_style">
-                                            <option selected="selected" value="300">Thin</option>
-                                            <option value="300 italic">Thin/Italic</option>
-                                            <option value="normal">Normal</option>
-                                            <option value="italic">Italic</option>
-                                            <option value="bold">Bold</option>
-                                            <option value="bold italic">Bold/Italic</option>
-                                        </select>
-
-                                        <div id="woo_font_body_color_picker" class="colorSelector">
-                                            <div style="background-color: rgb(62, 62, 62);"></div>
-                                        </div>
-                                        <input class="colourpicker minicolors-input woo-color woo-typography woo-typography-color" id="woo_font_body_color" name="woo_font_body_color" type="text" rel="color" value="#333333" size="7" maxlength="7">
-                                        <br>
-                                    </div>
-                                    <div class="explain"></div>
-                                    <div class="clear"> </div>
-
-                                </div><!-- .section-typography -->
-
-
+                      <!-- Begin Typography Controls -->
+                        <div class="uk-panel uk-panel-box uk-form-controls-condensed typography-controls controls">
+                          <!-- Size Select px -->
+                          <select class="uk-form-width-mini typography-size typography-size-px woo-typography woo-typography-size woo-typography-size-px" id="" style="display:none">
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                          </select>
+                          <!-- Size Select em -->
+                          <select class="uk-form-width-mini typography-size typography-size-em woo-typography woo-typography-size woo-typography-size-em" id="" name="woo_font_body_size">
+                              <option value="2.1">2.1</option>
+                              <option value="2.2">2.2</option>
+                              <option value="2.3">2.3</option>
+                              <option value="2.4">2.4</option>
+                              <option value="2.5">2.5</option>
+                              <option value="2.6">2.6</option>
+                              <option value="2.7">2.7</option>
+                              <option value="2.8">2.8</option>
+                              <option value="2.9">2.9</option>
+                          </select>
+                          <!-- Unit Select -->
+                          <select class="uk-form-width-mini typography-unit woo-typography woo-typography-unit" name="" id="">
+                              <option value="px">px</option>
+                              <option value="em" selected="selected">em</option>
+                          </select>
+                          <!-- Font Face Select -->
+                          <select class="uk-form-width-medium typography-face woo-typography woo-typography-face" name="" id="">
+                              <option selected="selected" value="Arial, sans-serif">Arial</option>
+                              <option value="Verdana, Geneva, sans-serif">Verdana</option>
+                              <option value="Georgia, serif">Georgia</option>
+                              <option value="Tahoma, Geneva, Verdana, sans-serif">Tahoma</option>
+                              <option value="Geneva, Tahoma, Verdana, sans-serif">Geneva*</option>
+                              <option value="Impact, Charcoal, sans-serif">Impact</option>
+                              <option value="">-- Google Fonts --</option>
+                              <option value="Architects Daughter">Architects Daughter</option>
+                              <option value="Arimo">Arimo</option>
+                              <option value="Cabin">Cabin</option>
+                              <option value="Chivo">Chivo</option>
+                              <option value="Lato">Lato</option>
+                              <option value="Lobster">Lobster</option>
+                              <option value="Lobster Two">Lobster Two</option>
+                              <option value="Oswald">Oswald</option>
+                              <option value="Rock Salt">Rock Salt</option>
+                              <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
+                          </select>
+                          <!-- Font Style Select -->
+                          <select class="uk-form-width-small typography-style woo-typography woo-typography-style" name="" id="">
+                              <option selected="selected" value="300">Thin</option>
+                              <option value="300 italic">Thin/Italic</option>
+                              <option value="normal">Normal</option>
+                              <option value="italic">Italic</option>
+                              <option value="bold">Bold</option>
+                              <option value="bold italic">Bold/Italic</option>
+                          </select>
+                          <!-- Font Color Select -->
+                          <div id="woo_font_body_color_picker" class="colorSelector">
+                              <div style="background-color: rgb(62, 62, 62);"></div>
+                          </div>
+                          <input class="colourpicker minicolors-input woo-color woo-typography woo-typography-color" id="woo_font_body_color" name="woo_font_body_color" type="text" rel="color" value="#333333" size="7" maxlength="7">
+                          <br>
+                        </div><!-- .typography-controls -->
+                        <!-- End Typography Controls -->
+                        <div class="explain"></div>
+                        <div class="clear"> </div>
+                      </div><!-- .section-typography -->
                     </div><!-- .uk-form-controls -->
                   </div><!-- .uk-form-row -->
                   <p class="uk-text-muted"><span class="uk-badge">NOTE</span> In this example we used a button from the <a href="#">Button component</a>.</p>
