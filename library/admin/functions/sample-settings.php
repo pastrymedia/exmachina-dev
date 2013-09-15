@@ -1956,7 +1956,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                       <!-- Begin Typography Controls -->
                         <div class="uk-panel uk-panel-box uk-form-controls-condensed typography-controls controls">
                           <!-- Size Select px -->
-                          <select class="uk-form-width-mini typography-size typography-size-px woo-typography woo-typography-size woo-typography-size-px" id="" style="display:none">
+                          <select class="uk-form-width-mini typography-size typography-size-px" id="" style="display:none">
                               <option value="10">10</option>
                               <option value="11">11</option>
                               <option value="12">12</option>
@@ -1970,7 +1970,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                               <option value="20">20</option>
                           </select>
                           <!-- Size Select em -->
-                          <select class="uk-form-width-mini typography-size typography-size-em woo-typography woo-typography-size woo-typography-size-em" id="" name="woo_font_body_size">
+                          <select class="uk-form-width-mini typography-size typography-size-em" id="" name="">
                               <option value="2.1">2.1</option>
                               <option value="2.2">2.2</option>
                               <option value="2.3">2.3</option>
@@ -1982,12 +1982,12 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                               <option value="2.9">2.9</option>
                           </select>
                           <!-- Unit Select -->
-                          <select class="uk-form-width-mini typography-unit woo-typography woo-typography-unit" name="" id="">
+                          <select class="uk-form-width-mini typography-unit" name="" id="">
                               <option value="px">px</option>
                               <option value="em" selected="selected">em</option>
                           </select>
                           <!-- Font Face Select -->
-                          <select class="uk-form-width-medium typography-face woo-typography woo-typography-face" name="" id="">
+                          <select class="uk-form-width-medium typography-face" name="" id="">
                               <option selected="selected" value="Arial, sans-serif">Arial</option>
                               <option value="Verdana, Geneva, sans-serif">Verdana</option>
                               <option value="Georgia, serif">Georgia</option>
@@ -2007,7 +2007,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                               <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
                           </select>
                           <!-- Font Style Select -->
-                          <select class="uk-form-width-small typography-style woo-typography woo-typography-style" name="" id="">
+                          <select class="uk-form-width-small typography-style" name="" id="">
                               <option selected="selected" value="300">Thin</option>
                               <option value="300 italic">Thin/Italic</option>
                               <option value="normal">Normal</option>
@@ -2019,7 +2019,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                           <div id="woo_font_body_color_picker" class="colorSelector">
                               <div style="background-color: rgb(62, 62, 62);"></div>
                           </div>
-                          <input class="colourpicker minicolors-input woo-color woo-typography woo-typography-color" id="woo_font_body_color" name="woo_font_body_color" type="text" rel="color" value="#333333" size="7" maxlength="7">
+                          <input class="colourpicker minicolors-input typography-color woo-color" id="woo_font_body_color" name="woo_font_body_color" type="text" rel="color" value="#333333" size="7" maxlength="7">
                           <br>
                         </div><!-- .typography-controls -->
                         <!-- End Typography Controls -->

@@ -23,7 +23,7 @@
 
      var previewButtonHTML = '<a href="#" class="uk-button woo-typography-preview-button button submit-button" title="' + 'Preview your customized typography settings' + '"><span>' + '+' + '</span></a>';
 
-     $( 'input.woo-typography-color' ).each( function ( i ) {
+     $( 'input.typography-color' ).each( function ( i ) {
      	$( this ).after( previewButtonHTML );
      });
 
@@ -79,16 +79,16 @@
     	var controls = target.parents( '.controls' );
     	var explain = target.parents( '.controls' ).next( '.explain' );
 
-    	var fontUnit = controls.find( '.woo-typography-unit' ).val();
+    	var fontUnit = controls.find( '.typography-unit' ).val();
 
-    	var sizeSelector = '.woo-typography-size-px';
-    	if ( fontUnit == 'em' ) { sizeSelector = '.woo-typography-size-em'; }
+    	var sizeSelector = '.typography-size-px';
+    	if ( fontUnit == 'em' ) { sizeSelector = '.typography-size-em'; }
 
     	var fontSize = controls.find( sizeSelector ).val();
 
-    	var fontFace = controls.find( '.woo-typography-face' ).val();
-    	var fontStyle = controls.find( '.woo-typography-style' ).val();
-    	var fontColor = controls.find( '.woo-typography-color' ).val();
+    	var fontFace = controls.find( '.typography-face' ).val();
+    	var fontStyle = controls.find( '.typography-style' ).val();
+    	var fontColor = controls.find( '.typography-color' ).val();
    		var lineHeight = ( parseInt( fontSize )  / 2 ) + parseInt( fontSize ); // Calculate pleasant line-height for the selected font size.
 
 		// Fix the line-height if using "em".

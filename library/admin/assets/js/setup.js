@@ -26,21 +26,21 @@
  */
 
  	setup_custom_typography: function () {
-	 	$( 'select.woo-typography-unit' ).change( function(){
+	 	$( 'select.typography-unit' ).change( function(){
 			var val = $( this ).val();
 			var parent = $( this ).parent();
-			var name = parent.find( '.woo-typography-size-px' ).attr( 'name' );
-			if( name == '' ) { var name = parent.find( '.woo-typography-size-em' ).attr( 'name' ); }
+			var name = parent.find( '.typography-size-px' ).attr( 'name' );
+			if( name == '' ) { var name = parent.find( '.typography-size-em' ).attr( 'name' ); }
 
 			if( val == 'px' ) {
-				var name = parent.find( '.woo-typography-size-em' ).attr( 'name' );
-				parent.find( '.woo-typography-size-em' ).hide().removeAttr( 'name' );
-				parent.find( '.woo-typography-size-px' ).show().attr( 'name', name );
+				var name = parent.find( '.typography-size-em' ).attr( 'name' );
+				parent.find( '.typography-size-em' ).hide().removeAttr( 'name' );
+				parent.find( '.typography-size-px' ).show().attr( 'name', name );
 			}
 			else if( val == 'em' ) {
-				var name = parent.find( '.woo-typography-size-px' ).attr( 'name' );
-				parent.find( '.woo-typography-size-px' ).hide().removeAttr( 'name' );
-				parent.find( '.woo-typography-size-em' ).show().attr( 'name', name );
+				var name = parent.find( '.typography-size-px' ).attr( 'name' );
+				parent.find( '.typography-size-px' ).hide().removeAttr( 'name' );
+				parent.find( '.typography-size-em' ).show().attr( 'name', name );
 			}
 
 		});
