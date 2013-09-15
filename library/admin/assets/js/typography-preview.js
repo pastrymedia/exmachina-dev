@@ -3,34 +3,14 @@
  * 2011-10-07.
  *
  * @description The code below is designed to generate a live preview using the
- * setting specified in a "custom typography" field in the WooFramework.
+ * setting specified in a "custom typography" field in the ExMachina Framework.
  *
  * @since 4.7.0
  */
 
 (function ($) {
 
-  wooTypographyPreview = {
-
-  	/**
-  	 * loadPreviewButtons()
-  	 *
-  	 * @description Setup a "preview" button next to each typography field.
-  	 * @since 4.7.0
-  	 */
-
-    loadPreviewButtons: function () {
-
-     var previewButtonHTML = '<a href="#" class="uk-button woo-typography-preview-button button submit-button" title="' + 'Preview your customized typography settings' + '"><span>' + '+' + '</span></a>';
-
-     $( 'input.typography-color' ).each( function ( i ) {
-     	$( this ).after( previewButtonHTML );
-     });
-
-     // Register event handlers.
-     wooTypographyPreview.handleEvents();
-
-    }, // End loadPreviewButtons()
+  ExMachinaTypographyPreview = {
 
     /**
      * handleEvents()
@@ -40,28 +20,14 @@
      */
 
     handleEvents: function () {
-    	$( 'a.woo-typography-preview-button' ).live( 'click', function () {
-    		wooTypographyPreview.generatePreview( $( this ) );
+    	$( 'a.typography-preview-button' ).live( 'click', function () {
+    		ExMachinaTypographyPreview.generatePreview( $( this ) );
     		return false;
     	});
 
-    	$( 'a.preview_remove' ).live( 'click', function () {
-    		wooTypographyPreview.closePreview( $( this ) );
-    		return false;
-    	});
     },
 
-    /**
-     * closePreview()
-     *
-     * @description Close the preview.
-     * @since 4.7.0
-     */
 
-     closePreview: function ( target ) {
-		target.parents( '.section' ).find( '.woo-typography-preview-button .refresh' ).removeClass( 'refresh' );
-     	target.parents( '.typography-preview-container' ).remove();
-     },
 
     /**
      * generatePreview()
@@ -187,33 +153,31 @@
     	if ( fontColor ) { previewStyles += ' color: ' + fontColor + ';'; }
 
     	// Construct preview HTML.
-    	var previewHTMLInner = jQuery( '<div />' ).addClass( 'current' ).addClass( 'uk-panel uk-panel-box uk-panel-box-secondary typography-preview' ).text( previewText ).before( '<a href="#" class="preview_remove button">' + 'Close Preview' + '</a>' );
+    	var previewHTMLInner = jQuery( '<div />' ).addClass( 'current' ).addClass( 'typography-preview' ).text( previewText );
 
-    	previewHTML = jQuery( '<div />' ).addClass( 'typography-preview-container' ).html( previewHTMLInner );
+    	previewHTML = jQuery( '<div />' ).addClass( 'uk-panel uk-panel-box uk-panel-box-secondary typography-preview-wrap' ).html( previewHTMLInner );
 
     	// If no preview display is present, add one.
-    	if ( ! explain.next( '.typography-preview-container' ).length ) {
+    	if ( ! explain.next( '.typography-preview-wrap' ).length ) {
     		previewHTML.find( '.typography-preview' ).attr( 'style', previewStyles );
     		explain.after( previewHTML );
     	} else {
     	// Otherwise, just update the styles of the existing preview.
-    		explain.next( '.typography-preview-container' ).find( '.typography-preview' ).attr( 'style', previewStyles );
+    		explain.next( '.typography-preview-wrap' ).find( '.typography-preview' ).attr( 'style', previewStyles );
     	}
 
-    	// Set the button to "refresh" mode.
-    	controls.find( '.woo-typography-preview-button span' ).addClass( 'refresh' );
     }
 
 
-  }; // End wooTypographyPreview Object // Don't remove this, or the sky will fall on your head.
+  }; // End ExMachinaTypographyPreview Object // Don't remove this, or the sky will fall on your head.
 
 /*-----------------------------------------------------------------------------------*/
-/* Execute the above methods in the wooTypographyPreview object.
+/* Execute the above methods in the ExMachinaTypographyPreview object.
 /*-----------------------------------------------------------------------------------*/
 
 	$(document).ready(function () {
 
-		wooTypographyPreview.loadPreviewButtons();
+        ExMachinaTypographyPreview.handleEvents();
 
 	});
 

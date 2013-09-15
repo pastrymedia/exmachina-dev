@@ -8,7 +8,7 @@
 
 (function ($) {
 
-  woothemesAdmin = {
+  exmachinathemesAdmin = {
 
 
 
@@ -56,8 +56,8 @@
  		if ( jQuery().ColorPicker && $( '.section-typography, .section-border, .section-color' ).length ) {
  			$( '.section-typography, .section-border, .section-color' ).each( function () {
 
- 				var option_id = $( this ).find( '.woo-color' ).attr( 'id' );
-				var color = $( this ).find( '.woo-color' ).val();
+ 				var option_id = $( this ).find( '.pick-color' ).attr( 'id' );
+				var color = $( this ).find( '.pick-color' ).val();
 				var picker_id = option_id += '_picker';
 
  				if ( $( this ).hasClass( 'section-typography' ) || $( this ).hasClass( 'section-border' ) ) {
@@ -92,17 +92,17 @@
 
 
 
-  }; // End woothemesAdminInterface Object // Don't remove this, or the sky will fall on your head.
+  }; // End exmachinathemesAdminInterface Object // Don't remove this, or the sky will fall on your head.
 
 /**
- * Execute the above methods in the woothemesAdminInterface object.
+ * Execute the above methods in the exmachinathemesAdminInterface object.
  *
  * @since 4.8.0
  */
 	$(document).ready(function () {
 
-		woothemesAdmin.setup_custom_typography();
-		woothemesAdmin.setup_colourpickers();
+		exmachinathemesAdmin.setup_custom_typography();
+		exmachinathemesAdmin.setup_colourpickers();
 
 
 	});

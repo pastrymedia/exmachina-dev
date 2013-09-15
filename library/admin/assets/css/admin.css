@@ -378,6 +378,10 @@ ul.checkbox-list.horizontal li {
   cursor:pointer;
 }
 
+.typography-controls .color-selector {
+  display: inline-block;
+}
+
 /* Typography Preview Container
 --------------------------------------------*/
 .typography-preview-wrap {

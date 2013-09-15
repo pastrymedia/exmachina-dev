@@ -2016,15 +2016,23 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                               <option value="bold italic">Bold/Italic</option>
                           </select>
                           <!-- Font Color Select -->
-                          <div id="woo_font_body_color_picker" class="colorSelector">
+                          <div id="font_body_color_picker" class="color-selector">
                               <div style="background-color: rgb(62, 62, 62);"></div>
                           </div>
-                          <input class="colourpicker minicolors-input typography-color woo-color" id="woo_font_body_color" name="woo_font_body_color" type="text" rel="color" value="#333333" size="7" maxlength="7">
-                          <br>
+                          <input class="colourpicker minicolors-input typography-color pick-color" id="font_body_color" name="" type="text" rel="color" value="#333333" size="7" maxlength="7">
+
+                          <!-- Preview Button -->
+                          <a href="#" class="uk-button typography-preview-button"><i class="uk-icon-refresh"></i></a>
+
                         </div><!-- .typography-controls -->
                         <!-- End Typography Controls -->
+
+                        <!-- Begin Font Preview -->
                         <div class="explain"></div>
+
                         <div class="clear"> </div>
+                        <!-- End Font Preview -->
+
                       </div><!-- .section-typography -->
                     </div><!-- .uk-form-controls -->
                   </div><!-- .uk-form-row -->
