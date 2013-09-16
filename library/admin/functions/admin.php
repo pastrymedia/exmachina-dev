@@ -196,13 +196,10 @@ function exmachina_admin_register_scripts() {
   $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
   /* Register the main admin JS scripts. */
-  wp_register_script( 'exmachina-core-admin-typography-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "typography-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-core-admin-typography-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "font-preview.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
   /* Register the main admin JS scripts. */
-  wp_register_script( 'exmachina-core-admin-setup-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "setup.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
-
-  /* Register the main admin JS scripts. */
-  wp_register_script( 'exmachina-core-admin-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "admin.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
+  wp_register_script( 'exmachina-core-admin-setup-js', esc_url( trailingslashit( EXMACHINA_ADMIN_JS ) . "admin-setup.js" ), array( 'jquery' ), EXMACHINA_VERSION, true );
 
 } // end function exmachina_admin_register_scripts()
 

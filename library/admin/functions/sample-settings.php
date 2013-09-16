@@ -117,7 +117,6 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
 
     /* Typography Setup */
     add_meta_box( 'table-typography', __( 'Table Typography', 'exmachina-core' ), array( $this, 'metabox_table_display_typography' ), $this->pagehook, 'normal', 'default' );
-    add_meta_box( 'table-typography-test', __( 'Test Table Typography', 'exmachina-core' ), array( $this, 'metabox_table_display_typography_test' ), $this->pagehook, 'normal', 'default' );
 
     /* Code Editing Setup */
     add_meta_box( 'table-editor', __( 'Table Code Editor', 'exmachina-core' ), array( $this, 'metabox_table_display_editor' ), $this->pagehook, 'normal', 'default' );
@@ -1801,157 +1800,6 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                   <p class="uk-margin-top-remove">To apply this component, add the <code>.uk-form</code> class to a form element. All form control elements are placed side by side within the next row.</p>
                   <div class="uk-form-row">
                     <div class="uk-form-controls uk-form-controls-text">
-                      <!-- Begin Form Inputs -->
-                      <div class="uk-panel uk-panel-box uk-form-controls-condensed typography-controls">
-                        <!-- Size Select -->
-                        <select class="uk-form-width-mini pretty-select typography-size typography-size-px" id="" style="">
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                          <option value="13">13</option>
-                          <option value="14">14</option>
-                          <option value="15">15</option>
-                          <option value="16">16</option>
-                          <option value="17">17</option>
-                          <option value="18">18</option>
-                          <option value="19">19</option>
-                          <option value="20">20</option>
-                        </select>
-                        <!-- Unit Select -->
-                        <select class="uk-form-width-mini pretty-select typography-unit" id="" style="">
-                          <option value="px">px</option>
-                          <option value="em">em</option>
-                        </select>
-                        <!-- Font Select -->
-                        <select id="" class="uk-form-width-medium pretty-select" placeholder="Select a font...">
-                          <optgroup label="Basic Fonts">
-                            <option>Arial</option>
-                            <option>Arial Black</option>
-                            <option>Comic Sans MS</option>
-                            <option>Courier New</option>
-                            <option>Georgia</option>
-                            <option>Impact</option>
-                            <option>Palatino Linotype</option>
-                            <option>Lucida Console</option>
-                            <option>Lucida Sans Unicode</option>
-                            <option>Times New Roman</option>
-                            <option>Tahoma</option>
-                            <option>Trebuchet MS</option>
-                            <option>Verdana</option>
-                          </optgroup>
-                          <optgroup label="Google Web Fonts">
-                            <option>ABeeZee</option>
-                            <option>Abel</option>
-                            <option>Abril Fatface</option>
-                            <option>Aclonica</option>
-                            <option>Acme</option>
-                            <option>Actor</option>
-                            <option>Adamina</option>
-                            <option>Advent Pro</option>
-                            <option>Aguafina Script</option>
-                            <option>Akronim</option>
-                            <option>Aladin</option>
-                            <option>Aldrich</option>
-                            <option>Alef</option>
-                            <option>Alegreya</option>
-                            <option>Alegreya SC</option>
-                            <option>Alex Brush</option>
-                            <option>Alfa Slab One</option>
-                            <option>Alice</option>
-                            <option>Alike</option>
-                            <option>Alike Angular</option>
-                            <option>Yanone Kaffeesatz</option>
-                            <option>Yellowtail</option>
-                            <option>Yeseva One</option>
-                            <option>Yesteryear</option>
-                            <option>Zeyada</option>
-                          </optgroup>
-                        </select>
-                        <!-- Font Weight Select -->
-                        <select id="" class="uk-form-width-small pretty-select" placeholder="Select a weight...">
-                          <optgroup label="Font Weight">
-                            <option value="300">Light</option>
-                            <option value="300italic">Light Italic</option>
-                            <option value="regular" selected="">Regular</option>
-                            <option value="italic">Italic</option>
-                            <option value="700">Bold</option>
-                            <option value="700italic">Bold Italic</option>
-                            <option value="900">Extra Bold</option>
-                            <option value="900italic">Extra Bold Italic</option>
-                          </optgroup>
-                        </select>
-                        <!-- Color Picker -->
-                        <input class="colourpicker minicolors-input" id="" name="" type="text" rel="color" value="#333333" size="7" maxlength="7">
-                        <!-- Preview Button -->
-                        <a href="#" class="uk-button"><i class="uk-icon-refresh"></i></a>
-                      </div><!-- .typography-controls -->
-                      <!-- End Form Inputs -->
-                      <!-- Begin Font Preview -->
-                      <div class="typography-preview-wrap">
-                        <div class="uk-panel uk-panel-box uk-panel-box-secondary typography-preview">
-                        Grumpy wizards make toxic brew for the evil Queen and Jack.
-                        </div><!-- .typography-preview -->
-                      </div><!-- .typography-preview-wrap -->
-                      <!-- End Font Preview -->
-                    </div><!-- .uk-form-controls -->
-                  </div><!-- .uk-form-row -->
-                  <p class="uk-text-muted"><span class="uk-badge">NOTE</span> In this example we used a button from the <a href="#">Button component</a>.</p>
-                </fieldset>
-                <!-- End Fieldset -->
-              </div><!-- .fieldset-wrap -->
-            </td><!-- .postbox-fieldset -->
-          </tr>
-        </tbody>
-        <!-- End Table Body -->
-      </table>
-    </div><!-- .postbox-inner-wrap -->
-    <!-- End Markup -->
-    <?php
-  } // end function metabox_table_display_typography()
-
-    /****************************************************************************
-  !!!!!!! TESTING !!!!!!! BEGIN THE TABLE TYPOGRAPHY METABOX
-  ****************************************************************************/
-
-  /**
-   * Table Typography Metabox
-   *
-   * @since 0.4.5
-   * @access public
-   * @return void
-   */
-  function metabox_table_display_typography_test() {
-    ?>
-    <!-- Begin Markup -->
-    <div class="postbox-inner-wrap">
-      <table class="uk-table postbox-table postbox-bordered">
-        <!-- Begin Table Header -->
-        <thead>
-          <tr>
-            <td class="postbox-header alert" colspan="2">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </td><!-- .postbox-header -->
-          </tr>
-        </thead>
-        <!-- End Table Header -->
-        <!-- Begin Table Body -->
-        <tbody>
-          <tr>
-            <td class="uk-width-2-10 postbox-label">
-              <label class="uk-text-bold">This is a Label
-              <span class="uk-text-danger uk-text-small small-caps">(Required)</span>
-              <span class="uk-text-muted" data-uk-tooltip title="Lorem Ipsum is simply dummy text of the printing and typesetting industry."><sup><i class="uk-icon-question-sign"></i></sup></span>
-              </label>
-              <p class="uk-margin-top-remove uk-text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </td>
-            <td class="uk-width-8-10 postbox-fieldset">
-              <div class="fieldset-wrap uk-margin uk-grid">
-                <!-- Begin Fieldset -->
-                <fieldset class="uk-form uk-width-1-1">
-                  <legend>Typography</legend>
-                  <p class="uk-margin-top-remove">To apply this component, add the <code>.uk-form</code> class to a form element. All form control elements are placed side by side within the next row.</p>
-                  <div class="uk-form-row">
-                    <div class="uk-form-controls uk-form-controls-text">
                       <div class="section section-typography">
                       <!-- Begin Typography Controls -->
                         <div class="uk-panel uk-panel-box uk-form-controls-condensed typography-controls controls">
@@ -1988,13 +1836,15 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                           </select>
                           <!-- Font Face Select -->
                           <select class="uk-form-width-medium typography-face" name="" id="">
+                            <optgroup label="System Fonts">
                               <option selected="selected" value="Arial, sans-serif">Arial</option>
                               <option value="Verdana, Geneva, sans-serif">Verdana</option>
                               <option value="Georgia, serif">Georgia</option>
                               <option value="Tahoma, Geneva, Verdana, sans-serif">Tahoma</option>
                               <option value="Geneva, Tahoma, Verdana, sans-serif">Geneva*</option>
                               <option value="Impact, Charcoal, sans-serif">Impact</option>
-                              <option value="">-- Google Fonts --</option>
+                            </optgroup>
+                            <optgroup label="Google Fonts">
                               <option value="Architects Daughter">Architects Daughter</option>
                               <option value="Arimo">Arimo</option>
                               <option value="Cabin">Cabin</option>
@@ -2005,6 +1855,7 @@ class ExMachina_Admin_Sample_Settings extends ExMachina_Admin_Metaboxes {
                               <option value="Oswald">Oswald</option>
                               <option value="Rock Salt">Rock Salt</option>
                               <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
+                            </optgroup>
                           </select>
                           <!-- Font Style Select -->
                           <select class="uk-form-width-small typography-style" name="" id="">

@@ -759,9 +759,6 @@ abstract class ExMachina_Admin_Metaboxes extends ExMachina_Admin {
     /* Enqueue admin JavaScript if on an admin settings screen. */
     wp_enqueue_script( 'exmachina-core-admin-setup-js' );
 
-    /* Enqueue admin JavaScript if on an admin settings screen. */
-    wp_enqueue_script( 'exmachina-core-admin-js' );
-
   } // end function settings_enqueue_scripts()
 
   /**
